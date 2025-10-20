@@ -25,7 +25,7 @@ jobs:
       - name: terraform init
         run: |
           terraform init
-          terraform workspace select-or-create $TF_ENV
+          terraform workspace select -or-create $TF_ENV
           
 
 
