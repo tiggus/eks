@@ -22,10 +22,14 @@ jobs:
         with:
           role-to-assume: arn:aws:iam::791860731874:role/github-oidc
           aws-region: ${{ env.AWS_REGION }}
-      - name: terraform init
+      - name: terraform setup
         run: |
           terraform init
           terraform workspace select -or-create $TF_ENV
+      - name: terraform plan
+        run: |
+          terraform plan -out=plan.tfplan
+      
           
 
 
