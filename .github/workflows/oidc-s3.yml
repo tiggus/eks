@@ -5,7 +5,6 @@ on:
 
 env:
   AWS_REGION : "us-east-1"
-  TF_ENV: dev
 
 permissions:
   id-token: write   # This is required for requesting the JWT
@@ -22,11 +21,9 @@ jobs:
         with:
           role-to-assume: arn:aws:iam::791860731874:role/github-oidc
           aws-region: ${{ env.AWS_REGION }}
-      - name: terraform init
+      - name: list-buckets
         run: |
-          terraform init
-          terraform workspace select $TF_ENV
-          
+          aws s3 ls
 
 
 # jobs:

@@ -1,8 +1,17 @@
-resource "aws_s3_bucket" "terraform" {
-  bucket = "terraform-state-123939393433434"
-
-  tags = {
-    Name        = "terraform"
-    Environment = "dev"
+resource "random_id" "random" {
+  keepers = {
+    terraform_bucket = var.terraform_bucket
   }
+
+  byte_length = 8
+}
+
+resource "aws_s3_bucket" "terraform" {
+  bucket = "${var.terraform_bucket}-${random_id.random.hex}"
+}
+
+
+variable "terraform_bucket" {
+    type = string
+    default = "terraform-state"
 }
