@@ -1,6 +1,5 @@
 name: terraform
 on:
-  push:
   workflow_dispatch:
 
 env:
@@ -28,16 +27,17 @@ jobs:
           terraform workspace select -or-create $TF_ENV
       - name: terraform plan
         run: |
-          terraform plan -out=plan.tfplan
+          terraform plan -destroy -out=plan.tfplan
       - uses: actions/upload-artifact@v4
         with: 
           name: terraform
           path: ./plan.tfplan
           retention-days: 9
   
-  terraform-apply:
+  terraform-destroy:
     runs-on: ubuntu-22.04
     needs: terraform-plan
+    environment: dev
     steps:
       - name: checkout
         uses: actions/checkout@v5
@@ -53,6 +53,10 @@ jobs:
       - uses: actions/download-artifact@v5
         with:
           name: terraform
+      - name: terraform apply
+        run: |
+          terraform apply -destroy -input=false plan.tfplan
+      
           
 
 
