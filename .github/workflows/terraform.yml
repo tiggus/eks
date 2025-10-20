@@ -12,7 +12,7 @@ permissions:
   contents: read    # This is required for actions/checkout
 
 jobs:
-  terraform plam:
+  terraform-plam:
     runs-on: ubuntu-22.04
     steps:
       - name: checkout
