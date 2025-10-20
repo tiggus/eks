@@ -6,8 +6,6 @@ on:
 env:
   AWS_REGION : "us-east-1"
   TF_ENV: dev
-  environment: dev
-
 
 permissions:
   id-token: write   # This is required for requesting the JWT
@@ -40,6 +38,7 @@ jobs:
   terraform-apply:
     runs-on: ubuntu-22.04
     needs: terraform-plan
+    environment: dev
     steps:
       - name: checkout
         uses: actions/checkout@v5
