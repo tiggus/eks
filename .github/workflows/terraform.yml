@@ -34,7 +34,25 @@ jobs:
           name: terraform
           path: ./plan.tfplan
           retention-days: 9
-            
+  
+  terraform-apply:
+    runs-on: ubuntu-22.04
+    needs: terraform-plan
+    steps:
+      - name: checkout
+        uses: actions/checkout@v5
+      - name: credentials
+        uses: aws-actions/configure-aws-credentials@e3dd6a429d7300a6a4c196c26e071d42e0343502
+        with:
+          role-to-assume: arn:aws:iam::791860731874:role/github-oidc
+          aws-region: ${{ env.AWS_REGION }}
+      - name: terraform setup
+        run: |
+          terraform init
+          terraform workspace select -or-create $TF_ENV
+      - uses: actions/download-artifact@v5
+        with:
+          name: terraform
           
 
 
