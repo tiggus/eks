@@ -19,7 +19,8 @@ jobs:
       - name: credentials
         uses: aws-actions/configure-aws-credentials@e3dd6a429d7300a6a4c196c26e071d42e0343502
         with:
-          role-to-assume: "arn:aws:iam::791860731874:role/github-oidc"
+          role-to-assume: arn:aws:iam::791860731874:role/
+          role-session-name: github-oidc
           aws-region: ${{ env.AWS_REGION }}
       - name: list-buckets
         run: |
