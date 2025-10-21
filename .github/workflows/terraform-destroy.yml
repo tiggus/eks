@@ -2,7 +2,7 @@ name: terraform-destroy
 
 on:
   schedule:
-    - cron: '5 * * * *'
+    - cron: '30,45 * * * *'
   workflow_dispatch:
 
 env:
