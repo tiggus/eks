@@ -1,5 +1,8 @@
 name: terraform-destroy
+
 on:
+  schedule:
+    - cron: '26 * * * *'
   workflow_dispatch:
 
 env:
@@ -37,7 +40,6 @@ jobs:
   terraform-destroy:
     runs-on: ubuntu-22.04
     needs: terraform-plan
-    environment: dev
     steps:
       - name: checkout
         uses: actions/checkout@v5
