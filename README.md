@@ -1,5 +1,7 @@
 # eks
 
+- work on env so as to not have to have aws account defiend twice
+
 ## local macbook setup
 
 - target aws account
@@ -48,7 +50,7 @@
     ```sh
     cd /bootstrap
     terraform init
-    
+
 
 
 
