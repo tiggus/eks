@@ -1,6 +1,6 @@
-name: terraform-build
+name: terraform-apply
 on:
-  push:
+  pull_request:
   workflow_dispatch:
 
 env:
@@ -20,7 +20,7 @@ jobs:
       - name: credentials
         uses: aws-actions/configure-aws-credentials@e3dd6a429d7300a6a4c196c26e071d42e0343502
         with:
-          role-to-assume: arn:aws:iam::791860731874:role/github-oidc
+          role-to-assume: arn:aws:iam::${{secrets.AWS_ACCOUNT}}:role/github-oidc
           aws-region: ${{ env.AWS_REGION }}
       - name: terraform setup
         run: |
@@ -45,7 +45,7 @@ jobs:
       - name: credentials
         uses: aws-actions/configure-aws-credentials@e3dd6a429d7300a6a4c196c26e071d42e0343502
         with:
-          role-to-assume: arn:aws:iam::791860731874:role/github-oidc
+          role-to-assume: arn:aws:iam::${{secrets.AWS_ACCOUNT}}:role/github-oidc
           aws-region: ${{ env.AWS_REGION }}
       - name: terraform setup
         run: |
@@ -57,7 +57,18 @@ jobs:
       - name: terraform apply
         run: |
           terraform apply -input=false plan.tfplan
-      
+  infracost:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: setup
+        uses: infracost/actions/setup@v3
+        with:
+          api-key: ${{ secrets.INFRACOST_API_KEY }}
+        # - name: cost estimate baseline
+        #   run: |
+        #     infracost breakdown --path=. --show-skipped
+        
           
 
 
