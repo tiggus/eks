@@ -1,0 +1,31 @@
+name: terraform-plan
+on:
+  push:
+  workflow_dispatch:
+
+env:
+  AWS_REGION : "us-east-1"
+  TF_ENV: dev
+
+permissions:
+  id-token: write   # This is required for requesting the JWT
+  contents: read    # This is required for actions/checkout
+
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v5
+      - name: build
+        run: docker build -t docker.io/my-organization/my-app:${{ github.sha }} .
+      - name: trivy scan
+        uses: aquasecurity/trivy-action@0.28.0
+        with:
+          image-ref: 'docker.io/my-organization/my-app:${{ github.sha }}'
+          format: 'table'
+          exit-code: '1'
+          ignore-unfixed: true
+          vuln-type: 'os,library'
+          severity: 'CRITICAL,HIGH'
