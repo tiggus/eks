@@ -1,4 +1,4 @@
-FROM node:22-alpine
+FROM node:22.11.0-bookworm-slim
 WORKDIR /app
 COPY . .
 RUN yarn install --production
