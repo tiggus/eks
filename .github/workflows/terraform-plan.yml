@@ -1,5 +1,6 @@
-name: terraform-destroy
+name: terraform-plan
 on:
+  push:
   workflow_dispatch:
 
 env:
@@ -27,36 +28,25 @@ jobs:
           terraform workspace select -or-create $TF_ENV
       - name: terraform plan
         run: |
-          terraform plan -destroy -out=plan.tfplan
+          terraform plan -out=plan.tfplan
       - uses: actions/upload-artifact@v4
         with: 
           name: terraform
           path: ./plan.tfplan
           retention-days: 9
   
-  terraform-destroy:
-    runs-on: ubuntu-22.04
-    needs: terraform-plan
-    environment: dev
+  infracost:
+    runs-on: ubuntu-latest
     steps:
-      - name: checkout
-        uses: actions/checkout@v5
-      - name: credentials
-        uses: aws-actions/configure-aws-credentials@e3dd6a429d7300a6a4c196c26e071d42e0343502
+      - uses: actions/checkout@v5
+      - name: setup
+        uses: infracost/actions/setup@v3
         with:
-          role-to-assume: arn:aws:iam::${{secrets.AWS_ACCOUNT}}:role/github-oidc
-          aws-region: ${{ env.AWS_REGION }}
-      - name: terraform setup
-        run: |
-          terraform init
-          terraform workspace select -or-create $TF_ENV
-      - uses: actions/download-artifact@v5
-        with:
-          name: terraform
-      - name: terraform apply
-        run: |
-          terraform apply -destroy -input=false plan.tfplan
-      
+          api-key: ${{ secrets.INFRACOST_API_KEY }}
+        # - name: cost estimate baseline
+        #   run: |
+        #     infracost breakdown --path=. --show-skipped
+        
           
 
 
