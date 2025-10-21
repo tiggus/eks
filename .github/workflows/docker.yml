@@ -1,4 +1,4 @@
-name: terraform-plan
+name: docker
 on:
   push:
   workflow_dispatch:
@@ -18,12 +18,14 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v5
+
       - name: build
-        run: docker build -t docker.io/my-organization/my-app:${{ github.sha }} .
+        run: |
+          docker build --no-cache -t latest -f docker/buildd.dockerfile .
       - name: trivy scan
         uses: aquasecurity/trivy-action@0.28.0
         with:
-          image-ref: 'docker.io/my-organization/my-app:${{ github.sha }}'
+          image-ref: 'latest'
           format: 'table'
           exit-code: '1'
           ignore-unfixed: true
