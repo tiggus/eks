@@ -36,6 +36,7 @@ jobs:
           retention-days: 9
   
   infracost:
+    name: infracost
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
@@ -43,13 +44,11 @@ jobs:
         uses: infracost/actions/setup@v3
         with:
           api-key: ${{ secrets.INFRACOST_API_KEY }}
-        # - name: cost estimate baseline
-        #   run: |
-        #     infracost breakdown --path=. --show-skipped
-        
-          
+      - name: cost estimate baseline
+        run: |
+          infracost breakdown --path=. --show-skipped
 
-
+ 
 # jobs:
 #   build-ubuntu:
 #     runs-on: ubuntu-latest
