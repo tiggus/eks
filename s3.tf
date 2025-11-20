@@ -9,8 +9,3 @@ resource "random_id" "random" {
 resource "aws_s3_bucket" "terraform" {
   bucket = "${var.terraform_bucket}-${random_id.random.hex}"
 }
-
-
-resource "aws_s3_bucket" "terraform1" {
-  bucket = "soniya-${random_id.random.hex}"
-}

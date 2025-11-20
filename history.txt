@@ -1,0 +1,1286 @@
+    1  whoami
+    2  ls /Users
+    3  git
+    4  git
+    5  git
+    6  ssh
+    7  echo $PAGER
+    8  git
+    9  sudo git
+   10  git status
+   11  ]pwd
+   12  pwd
+   13  net time
+   14  time
+   15  ntp -sS time.apple.com
+   16  sntp -sS time.apple.com
+   17  sudo sntp -sS time.apple.com
+   18  sudo systemsetup -gettimezone
+   19  sudo systemsetup -listtimezones
+   20  sudo systemsetup -settimezone Europe/London
+   21  top
+   22  code
+   23  kubectl create deployment my-app --image=nginx
+   24  kubectl get pods
+   25  kubectl get nodes
+   26  history
+   27  sudo systemsetup -settimezone Europe/London
+   28  history
+   29   sudo systemsetup -settimezone Europe/London
+   30  history
+   31   sudo systemsetup -settimezone Europe/London
+   32   sudo systemsetup -settimezone Europe/London
+   33  cd Desktop
+   34  ls
+   35  mkdir git
+   36  cd git
+   37  cd ..
+   38  cd ..
+   39  pwd
+   40  ls
+   41  mkdir git
+   42  cd git
+   43  ls
+   44  git clone git@github.com:tiggus/training.git
+   45  git config --global pager.branch false\ngit config --global user.email "steve@tiggus.com"\ngit config --global user.name "tiggus"
+   46  if [ -f ~/.ssh/id_rsa_github ]; then\n   echo "ssh key ~/.ssh/id_rsa_github already exists. skipping..."\n   echo " "\n   echo "--- below is the public key for ~/.ssh/id_rsa_github.pub"\n   echo "--- add it to your github ssh key"\n   echo " "\n   cat ~/.ssh/id_rsa_github.pub\n   echo " "\nelse\n   echo "creating github ssh key..."\n   ssh-keygen -t rsa -b 4096 -C "steve@tiggus.com" -f ~/.ssh/id_rsa_github -P ""\n\n   eval "$(ssh-agent -s)"\n\n   echo "\n   Host github.com\n      HostName github.com\n      PreferredAuthentications publickey\n      IdentityFile ~/.ssh/id_rsa_github" >> ~/.ssh/config\n\n   ssh-add -K ~/.ssh/id_rsa_github\n\n   echo " "\n   echo "--- below is the public key for ~/.ssh/id_rsa_github.pub"\n   echo " "\n   echo "--- add it to your github ssh key"\n   echo " "\n   cat ~/.ssh/id_rsa_github.pub\n   echo " "\nfi
+   47  git clone git@github.com:tiggus/training.git
+   48  cd training
+   49  ls
+   50  code .
+   51  vscode
+   52  code
+   53  cd git
+   54  cd training
+   55  code .
+   56  code .
+   57  code
+   58  .
+   59  code .
+   60  code .
+   61  code .
+   62  code .
+   63  cd git
+   64  cd training
+   65  code .
+   66  cd ..
+   67  ls
+   68  pwd
+   69  git clone git@github.com:tiggus/databricks.git
+   70  cd databricks
+   71  cd ..
+   72  pwd
+   73  git clone git@github.com:mchristoforouaker/demo1.git
+   74  cd demo1/
+   75  git branch
+   76  code .
+   77  docker build --help
+   78  uname -m
+   79  docker version
+   80  uname
+   81  uname -a
+   82  aws --version
+   83  aws version
+   84  cd ..
+   85  git clone git@github.com:tiggus/eks.git
+   86  cd eks
+   87  code .
+   88  curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg"\nsudo installer -pkg AWSCLIV2.pkg -target /\nwhich aws\naws --version
+   89  git checkout -b setup
+   90  git add .
+   91  git commit -m 'first update'
+   92  git push
+   93  git push -u HEAD
+   94  git push -u origin HEAD
+   95  ls -la
+   96  rm -rf AWSCLIV2.pkg
+   97  git add .
+   98  git commit -m 'removed pkg'
+   99  git push
+  100  gh browse
+  101  aws configure
+  102  aws s3 ls
+  103  aws sso login
+  104  aws login
+  105  aws configure sso
+  106  aws s3 ls
+  107  aws s3 ls --no-verify-ssl 
+  108      export HTTP_PROXY=http://147.161.141.23:80\n    export HTTPS_PROXY=https://147.161.141.23:443
+  109  aws s3 ls
+  110  nslookup
+  111  aws s3 ls
+  112  unset HTTP_PROXY
+  113  unset HTTPS_PROXY
+  114  aws s3 ls
+  115  echo HTTP_PROXY
+  116  echo $HTTP_PROXY
+  117  aws sts get-caller-identity
+  118  aws sts get-caller-identity --no-verify-ssl
+  119  terraform
+  120  brew
+  121  curl https://releases.hashicorp.com/terraform/1.13.4/terraform_1.13.4_darwin_arm64.zip
+  122  ls ~/tmp
+  123  ls ~
+  124  ls %HOME%
+  125  ls $HOME
+  126  curl https://releases.hashicorp.com/terraform/1.13.4/terraform_1.13.4_darwin_arm64.zip -o $HOME/Downloads/terraform_1.13.4_darwin_arm64.zip
+  127  ls -la
+  128  ls $HOME
+  129  ls $HOME/Downloads
+  130  unzip $HOME/Downloads/terraform_1.13.4_darwin_arm64.zip
+  131  ls $HOME/Downloads
+  132  ls -kla
+  133  mv ./terraform /usr/local/bin/
+  134  sudo mv ./terraform /usr/local/bin/
+  135  terraform version
+  136  cd bootstrap
+  137  terraform init
+  138  terraform init
+  139  aws sts get-caller-identity
+  140  aws sts get-caller-identity --no-verify-ssl
+  141  terraform plan
+  142  terraform apply
+  143  terraform plan
+  144  terraform apply
+  145  terraform plan
+  146  terraform plan -generate-config-out=generated.tf
+  147  tp
+  148  terraform plan
+  149  terraform apply
+  150  aws s3 ls --no-verify-ssl
+  151  git add .
+  152  git commit -m 'tf-test'
+  153  git push
+  154  git add .
+  155  git commit -m 'tf'
+  156  git push
+  157  git add .
+  158  git commit -m 'tf'
+  159  git push
+  160  ls -la
+  161  ls -la
+  162  git reset HEAD~
+  163  git push
+  164  git reset HEAD~
+  165  git add .
+  166  git commit -m 'update tf'
+  167  git push
+  168  git add .
+  169  git commit -m 'updated push'
+  170  git add .
+  171  git commit -m 'updated'
+  172  git add ../.github/workflows/blank.yml
+  173  git add ../.gitignore
+  174  git add ../README.md
+  175  git add ../LICENSE.txt
+  176  git add ../.github/workflows/terraform.yml
+  177  git commit -m added
+  178  git push
+  179  git add .
+  180  git commit -m 'remove role session name'
+  181  git add 
+  182  git add .
+  183  git commit -a
+  184  git commit -m upd
+  185  git add ../.github/workflows/terraform.yml
+  186  git push
+  187  git commit -m upd
+  188  git push
+  189  git add .
+  190  git commit -m 'role arn'
+  191  git add ../.github/workflows/terraform.yml
+  192  git commit -m 'updated'
+  193  git help
+  194  git add --all
+  195  git commit -m 'upd'
+  196  git push
+  197  git add --all
+  198  git commit -m 'workflow'
+  199  git push
+  200  git add --all
+  201  git commit -m 'role session name'
+  202  git push
+  203  git add --all
+  204  git commit -m 'removed role session'
+  205  git push
+  206  git add .
+  207  git commit -m 'upd"\n'
+  208  git add --all
+  209  git commit -m 'upd"\n'
+  210  git push
+  211  git add --all
+  212  git commit -m 'rsn'
+  213  git push
+  214  git add .
+  215  git commit -m 'norsn'
+  216  git add --all
+  217  git commit -m 'norsn'
+  218  got push
+  219  git push
+  220  terraform plan
+  221  terraform init
+  222  terraform plan
+  223  tp
+  224  terraform plan
+  225  terraform plan
+  226  terraform plan
+  227  terraform plan
+  228  terraform init -upgrade
+  229  terraform plan
+  230  terraform plan
+  231  terraform plan
+  232  terraform plan
+  233  terraform plan
+  234  terraform plan
+  235  terraform apply
+  236  terraform plan -destroy
+  237  terraform apply -destroy
+  238  terraform plan
+  239  aws s3 ls
+  240  aws s3 ls --no-ssl-validation
+  241  history
+  242  cat history
+  243  terraform plan
+  244  terraform plan
+  245  terraform plan
+  246  terraform plan
+  247  teraform apply
+  248  terraform apply
+  249  git add --all
+  250  git commit -m 'tf test'
+  251  git push
+  252  git add --all
+  253  git commit -m 'tf test'
+  254  git push
+  255  git add --all
+  256  git commit -m 'ubuntu version'
+  257  git push
+  258  git add --all
+  259  git commit -m 'workspace'
+  260  git push
+  261  git add --all
+  262  git commit -m tf
+  263  git push
+  264  terraform workspace show
+  265  terraform workspace select test
+  266  terraform workspace select test -or-create
+  267  terraform workspace select -or-create test
+  268  terraform workspace show
+  269  terrafor mworkspace select default
+  270  terraform workspace select default
+  271  git add --all
+  272  git commit -m 'tf workspace'
+  273  git push
+  274  git add --all
+  275  git commit -m 'tfplan'
+  276  git push
+  277  git add --all
+  278  git commit -m 's3'
+  279  git push
+  280  git add --all
+  281  git commit -m 's3'
+  282  git push
+  283  git add --all
+  284  git commit -m artifact
+  285  git push
+  286  git add --all
+  287  git commit -m download
+  288  git push
+  289  git add --all
+  290  git commit -m env
+  291  git push
+  292  git add --all
+  293  git commit -m approval
+  294  git push
+  295  git add --all
+  296  git commit -m apply
+  297  git push
+  298  terraform plan --destroy
+  299  terraform plan -destroy
+  300  git add .
+  301  git add --all
+  302  git commit -m destroy
+  303  git push
+  304  git add --all
+  305  git commit -m destrot
+  306  git push
+  307  git add .
+  308  git add --all
+  309  git commit -m secrets
+  310  git push
+  311  git add --all
+  312  git commit -m indent
+  313  git push
+  314  git add --all
+  315  git commit -m indent
+  316  git push
+  317  git add --all
+  318  git commit -m indent
+  319  git push
+  320  git add --all
+  321  git commit -m cron
+  322  git push
+  323  git add --all
+  324  git commit -m cronupd
+  325  git push
+  326  git add --all
+  327  git commit -m cronupd
+  328  git push
+  329  git checout main
+  330  git checkout main
+  331  git pull
+  332  git add --all
+  333  pwd
+  334  cd ..
+  335  ls
+  336  cd git
+  337  ls
+  338  cd eks
+  339  ls
+  340  git status
+  341  git add --all
+  342  git commit -m make-main-readme
+  343  git push
+  344  git checkout setup
+  345  git add --all
+  346  git commit -m 00
+  347  git push
+  348  git checkout -b infracost
+  349  git add .
+  350  git add --all
+  351  git commit -m infracost
+  352  git push
+  353  git push -u origin HEAD
+  354  git checkout -b trivy
+  355  git add .
+  356  git add --all
+  357  git commit -m trivy
+  358  git push
+  359  git push -u origin HEAD
+  360  git add --all
+  361  git commit -m docker
+  362  git push
+  363  git add --all
+  364  git commit -m dockerfile
+  365  git push
+  366  git add --all
+  367  git commit -m test-vulnerability
+  368  git push
+  369  aws sts-get-caller-identity 
+  370  aws sts get-caller-identity 
+  371  pwd
+  372  cd bootstrap
+  373  terraform plam
+  374  terraform plan
+  375  terraform init
+  376  terraform plan
+  377  cd ..
+  378  git add --all
+  379  git commit -m bootstrap
+  380  git push
+  381  top
+  382  history
+  383  history | grep time
+  384  sudo systemsetup -settimezone Europe/London
+  385  help set
+  386  set help
+  387  set
+  388  ls ~/.ssh
+  389  cat ~/.ssh/id_rsa_github.pub
+  390  ls ~
+  391  ls -la ~
+  392  cat ~/.zsh_history
+  393  code
+  394  if [ -f ~/.ssh/id_rsa_gitlab-as ]; then\n   echo "ssh key ~/.ssh/id_rsa_gitlab-as already exists. skipping..."\n   echo " "\n   echo "--- below is the public key for ~/.ssh/id_rsa_gitlab-as.pub"\n   echo "--- add it to your gitlab ssh key"\n   echo " "\n   cat ~/.ssh/id_rsa_gitlab-as.pub\n   echo " "\nelse\n   echo "creating gitlab-as ssh key..."\n   ssh-keygen -t rsa -b 4096 -C "syeomans@akersystems.com" -f ~/.ssh/id_rsa_gitlab-as -P ""\n   eval "$(ssh-agent -s)"\n   echo "\n   Host gitlab.com\n      HostName gitlab.com\n      PreferredAuthentications publickey\n      IdentityFile ~/.ssh/id_rsa_gitlab-as" >> ~/.ssh/config\n   ssh-add -K ~/.ssh/id_rsa_gitlab-as\n   echo " "\n   echo "--- below is the public key for ~/.ssh/id_rsa_gitlab-as.pub"\n   echo " "\n   echo "--- add it to your gitlab ssh key"\n   echo " "\n   cat ~/.ssh/id_rsa_gitlab-as.pub\n   echo " "\nfi
+  395  cat ~/.zsh_history
+  396  pwd
+  397  cd git
+  398  ls
+  399  git clone git@gitlab.com:AkerSystems/aker/common/application-components/tools/tools.git
+  400  ls
+  401  cd tools
+  402  ls
+  403  code .
+  404  cd ..
+  405  pwd
+  406  git clone git@github.com:hashicorp/setup-terraform.git
+  407  git clone git@github.com:tiggus/private.git
+  408  ls
+  409  terraform
+  410  pwd
+  411  ls
+  412  cd git
+  413  ls
+  414  git clone git@github.com:tiggus/at.git
+  415  cd at
+  416  code .
+  417  hostname
+  418  ls -la
+  419  configure-macbook.sh
+  420  ./configure-macbook.sh
+  421  chmod 755 configure-macbook.sh
+  422  ls -la
+  423  ./configure-macbook.sh
+  424  chmod 755 install-xcode.sh
+  425  chmod 755 install-brew.sh
+  426  ./configure-macbook.sh
+  427  chmod 755 install-brew-pkgs.sh
+  428  ./configure-macbook.sh
+  429  brew
+  430  /opt/homebrew/bin/brew
+  431  pwsh
+  432  pwd
+  433  ./configure-macbook.sh
+  434  brew
+  435  cd git
+  436  ls
+  437  cd at
+  438  ./configure-macbook.sh
+  439  ./configure-macbook.sh
+  440  cd git
+  441  cd as
+  442  ls
+  443  cd at
+  444  ls -la
+  445  terraform init
+  446  tfenv list
+  447  tfenv use 1.13.4
+  448  terraform init
+  449  ./configure-macbook.sh
+  450  update-ca-certificates
+  451  ls /usr
+  452  ls /usr/share
+  453  code --help
+  454  terragrunt
+  455  pwd
+  456  cd git
+  457  cd at
+  458  ls
+  459  git add .
+  460  git commit -m 'initial push'
+  461  git push -u origin HEAD
+  462  cd ..
+  463  rm -rf at
+  464  ls -la
+  465  ls
+  466  cd git
+  467  mkdir aker
+  468  cd aker
+  469  mkdir cep
+  470  git clone git@gitlab.com:AkerSystems/aker/cep/cep-app.git
+  471  git clone git@gitlab.com:AkerSystems/aker/cep/cep-infra-pipelines.git
+  472  ls
+  473  rm -rf cep-app
+  474  rm -rf cep-infra-pipelines
+  475  ls -la
+  476  cd cep
+  477  git clone git@gitlab.com:AkerSystems/aker/cep/cep-app.git
+  478  git clone git@gitlab.com:AkerSystems/aker/cep/cep-infra-pipelines.git
+  479  cd ..
+  480  ls
+  481  mkdir cloud-rivet
+  482  cd cloud-rivet
+  483  git clone git@gitlab.com:AkerSystems/cloud-rivet/cr-base-images/release-docs.git
+  484  git clone git@gitlab.com:AkerSystems/cloud-rivet/cr-base-images/release-tools.git
+  485  ls -la
+  486  cd ..
+  487  ls
+  488  mkdir common
+  489  cd common
+  490  ls
+  491  tfenv list
+  492  cd ..
+  493  ls
+  494  pwd
+  495  git clone git@github.com:tiggus/as.git
+  496  cd as
+  497  code .
+  498  ls
+  499  ./configure-terraform.sh
+  500  tfenv list
+  501  tfenv use 1.5.7
+  502  terraform -version
+  503  terraform -versionkubectl
+  504  kubectl
+  505  code --install-extension hashicorp.terraform --force\ncode --install-extension ms-vscode.powershell --force \ncode --install-extension ms-vscode.makefile-tools --force\ncode --install-extension  ms-azuretools.vscode-docker --force
+  506  cd ..
+  507  ls
+  508  cd aker
+  509  ls
+  510  cd cep
+  511  ls
+  512  cd ..
+  513  ls
+  514  cd cloud-rivet
+  515  ls
+  516  cd ..
+  517  ls
+  518  git clone git@github.com:tiggus/eks.git
+  519  cd eks
+  520  git pull
+  521  git checkout -b medi
+  522  code .
+  523  ls
+  524  git add -p
+  525  git commit -m'newrun'
+  526  git push -u origin HEAD
+  527  gh browse
+  528  gh auth login
+  529  gh browse
+  530  pwd
+  531  cd git
+  532  cd eks
+  533  terraform plan
+  534  terraform init -reconfigure
+  535  tfenv list
+  536  tfenv 1.5.7
+  537  tfenv use 1.5.7
+  538  terraform plan
+  539  terraform init -reconfigure
+  540  code .
+  541  terraform init -reconfigure
+  542  terraform plan
+  543  terraform plan -generate-config-out=test-role.tf
+  544  git tag -a v0.0.1
+  545  git tag -a v0.0.1 -m 'first tag'
+  546  git push
+  547  git push origin --tags
+  548  cd git
+  549  ls 
+  550  cd eks
+  551  code .
+  552  git add -p
+  553  git commit -m'update readme'
+  554  git push
+  555  git tag -a v0.0.2
+  556  git push origin --tags
+  557  gh browse
+  558  git tags
+  559  git tag
+  560  cd ..
+  561  git remote add client git@github.com:tiggus/mike.git
+  562  ls
+  563  cd eks
+  564  git remote add client git@github.com:tiggus/mike.git
+  565  git push client v0.0.2
+  566  git push client HEAD:main
+  567  git pull client
+  568  git push client HEAD:main
+  569  git pull client
+  570  git pull client:main
+  571  git pull origin client
+  572  cd ..
+  573  git clone git@github.com:tiggus/mike.git
+  574  cd git
+  575  cd mike
+  576  cd eks
+  577  git push client HEAD:main
+  578  git pull
+  579  git tag
+  580  cd ..
+  581  git clone git@github.com:tiggus/powercli.git
+  582  cd powercli
+  583  git tag -a v0.0.1 -m 'first tag'
+  584  git push tag
+  585  history | grep "git push"
+  586  git push origin --tags
+  587  git tag -a v0.0.2 -m 'first tag'
+  588  git push origin --tags
+  589  cd ..
+  590  ls
+  591  cd aker
+  592  ls
+  593  cd cep
+  594  ls
+  595  cd cep-app
+  596  ls
+  597  cd ..
+  598  cd cep-infra-pipelines
+  599  ls
+  600  cd ..
+  601  ls
+  602  cd common
+  603  ls
+  604  history
+  605  pwd
+  606  cd git
+  607  git clone git@gitlab.com:AkerSystems/product/cep/cep-iac-components.git
+  608  cd cep-iac-components
+  609  git branch
+  610  git checkout -b feature/apd-steve
+  611  code .
+  612  history
+  613  git add -p
+  614  git commit -m'update readme'
+  615  git push -u origin HEAD
+  616  git pull
+  617  git add -p
+  618  git commit -m 'initial pipeline'
+  619  git push
+  620  git add -p
+  621  git commit -m 'use template'
+  622  git push
+  623  git add -p
+  624  git commit -m'changed branch'
+  625  git push
+  626  git checkout -b develop/v3.3.9
+  627  git add -p
+  628  git commit -m 'branch regex'
+  629  git push -u origin HEAD
+  630  cd ..
+  631  ls
+  632  git clone git@gitlab.com:AkerSystems/aker/common/application-components/cicd/ci-templates.git
+  633  cd ci-templates
+  634  git checkout -b cep-v2
+  635  git push -u origin HEAD
+  636  cd git
+  637  ls
+  638  cd cep-iac-components
+  639  ls
+  640  git add -p
+  641  git commit -m 'updated ref'
+  642  git push
+  643  code .
+  644  git add -p
+  645  git commit -m 'updated terrascan refs and changed trigger'
+  646  git push
+  647  git add -p
+  648  git commit -m 'updated readme to test trigger'
+  649  git push
+  650  git add -p
+  651  git commit -m 'updated images where needed'
+  652  git push 
+  653  git add -p
+  654  git commit -m 'readme update to trigger'
+  655  git push
+  656  brew install trivy
+  657  trivy
+  658  trivy fs .
+  659  trivy --help
+  660  trivy fs . --format default,junit 
+  661  trivy fs . --format sarif
+  662  trivy fs . --format template
+  663  trivy fs . --format --template "@/contrib/gitlab.tpl"
+  664  trivy fs . --format template --template "@/contrib/gitlab.tpl"
+  665  git add .
+  666  git commit -m 'trivy-test'
+  667  git push
+  668  git add -p
+  669  git commit -m 'trigger'
+  670  git push
+  671  git add -p
+  672  git commit -m 'updted include'
+  673  git push
+  674  git commit -m 'trigger'
+  675  git add -p
+  676  git commit -m 'trigger'
+  677  git push
+  678  cd git
+  679  git clone git@gitlab.com:tiggus/yaml.git
+  680  cat ./ssh
+  681  ls /.ssh
+  682  ls /
+  683  ls -la /
+  684  ls -la ~/.ssh
+  685  cat ~/.ssh/id_rsa_gitlab-as.pub
+  686  ls
+  687  cd cep-iac-components
+  688  ls
+  689  code .
+  690  terraform plan
+  691  cd ..
+  692  ls
+  693  cd cep-iac-components
+  694  git add -p
+  695  git commit -m 'new pipes'
+  696  git push
+  697  git add -p
+  698  git commit -m 'changed stage name'
+  699  git push
+  700  git add -p
+  701  git commit -m 'updated needs'
+  702  git push
+  703  git add .
+  704  git commit -m 'updated job name'
+  705  git push
+  706  git add .
+  707  git commit -m 'removed : from name'
+  708  git push
+  709  git pull
+  710  curl -O -L ttps://releases.hashicorp.com/terraform/0.11.2/terraform_0.11.2_linux_amd64.zip\n
+  711  curl -O -L https://releases.hashicorp.com/terraform/1.5.7/terraform_1.5.7_linux_amd64.zip\n
+  712  uname
+  713  uname -m
+  714  uname -r
+  715  uname
+  716  uname *
+  717  uname -amnoprsv
+  718  curl -O -L https://releases.hashicorp.com/terraform/1.5.7/terraform_1.5.7_linux_64.zip\n
+  719  ls
+  720  checkov -d . -o junitxml
+  721  ls
+  722  code .
+  723  terraform init
+  724  terraform validate
+  725  trivy
+  726  cd git
+  727  ls
+  728  cd eks
+  729  ls
+  730  trivy
+  731  trivy fs .
+  732  trivy repo ./
+  733  terraform plan --out tfplan
+  734  code .
+  735  terraform plan --out tfplan
+  736  trivy config tfplan
+  737  history
+  738  cd ..
+  739  ls
+  740  cd ci-templates
+  741  code .
+  742  cd ..
+  743  ls
+  744  cd cep-iac-components
+  745  code .
+  746  git add -p
+  747  git commit -m 'test app'
+  748  git push
+  749  git pull
+  750  git add -p
+  751  git commit -m'included include'
+  752  git push
+  753  git add -p
+  754  git commit -m 'added deploy'
+  755  git push
+  756  git add -p
+  757  git commit -m 'updated var'
+  758  git push
+  759  git add .
+  760  git commit -m 'pwd'
+  761  git add .
+  762  git commit -m 'pwd'
+  763  git push
+  764  history
+  765  trivy config tfplan
+  766  terraform plan --out tfplan
+  767  code ,.
+  768  code .
+  769  terraform plan --out tfplan
+  770  trivy config tfplan
+  771  cd ..
+  772  git clone git@gitlab.com:AkerSystems/aker/cep/cep-infra-pipelines.git
+  773  cd cep-infra-pipelines
+  774  git checkout -b develop/v3.3.9
+  775  code .
+  776  git add -p
+  777  git commit -m 'plan only'
+  778  git push -u origin HEAD
+  779  git add -p
+  780  git commit -m 'addedeploy stage'
+  781  git commit -m 'added deploy stage'
+  782  git push
+  783  git add -p
+  784  git commit -m 'generate job'
+  785  git push
+  786  git add .
+  787  git commit -m 'input var'
+  788  git push
+  789  git add -p
+  790  git commit -m 'second artifact'
+  791  git push
+  792  terragrunt
+  793  terragrunt plan
+  794  touch terragrunt.hcl
+  795  ls
+  796  terragrunt plan
+  797  cd git
+  798  ls
+  799  cd cep-iac-components
+  800  ls
+  801  cd aws
+  802  ls
+  803  cd storage
+  804  ls
+  805  cd s3
+  806  ls
+  807  terraform plan
+  808  terraform init
+  809  terraform plan
+  810  ls
+  811  terragrunt plan
+  812  touch terragrunt.hcl
+  813  terragrunt plan
+  814  terragrunt
+  815  pwd
+  816  cd ..
+  817  cd cep-iac-components
+  818  terraform plan -target=./aws/storage
+  819  terraform plan -help
+  820  history
+  821  trivy config tfplan
+  822  trivy config tfplan -out trivy.out
+  823  trivy config tfplan -output trivy.out
+  824  trivy config tfplan --output trivy.out
+  825  ls
+  826  cat trivy.out
+  827  ls
+  828  cat main.tf
+  829  trivy config --format template --template "@contrib/junit.tpl"
+  830  trivy config --include-non-failures --format template --template "@contrib/junit.tpl" --output "/tmp/trivyReport.xml" /myiacdir
+  831  ls
+  832  trivy config --include-non-failures --format template --template "@contrib/junit.tpl" --output "/tmp/trivyReport.xml" /aws
+  833  trivy config --include-non-failures --format template --template "@contrib/junit.tpl" --output "/tmp/trivyReport.xml" ./aws
+  834  trivy config --include-non-failures --format template --template "junit.tpl" --output "/tmp/trivyReport.xml" ./aws
+  835  ls
+  836  trivy config --include-non-failures --format template --template "junit.tpl" --output "trivyReport.xml" ./aws
+  837  ls
+  838  cat trivyReport.xml
+  839  trivy config --include-non-failures --format template --template "./junit.tpl" --output "trivyReport.xml" ./aws
+  840  vi junit.tpl
+  841  trivy config --include-non-failures --format template --template "./junit.tpl" --output "trivyReport.xml" ./aws
+  842  ls
+  843  cat trivyReport.xml
+  844  trivy config --include-non-failures --format template --template "@contrib/junit.tpl" --output "trivyReport.xml" ./aws
+  845  trivy config --include-non-failures --format template --template "@./junit.tpl" --output "trivyReport.xml" ./aws
+  846  cat trivyReport.xml
+  847  cat junit.tpl
+  848  vi junit.tpl
+  849  trivy config --include-non-failures --format template --template "@./junit.tpl" --output "trivyReport.xml" ./aws
+  850  cat junit.tpl
+  851  trivy config --include-non-failures --format template --template "@./junit.tpl" --output "trivyReport.xml" ./aws
+  852  history
+  853  trivy config --exit-code 1 --format template --template "@./junit.tpl" -o "trivy-junit.xml" ${TERRAFORM_DIR}
+  854  trivy config --exit-code 1 --format template --template "@./junit.tpl" -o "trivy-junit.xml" ./aws
+  855  trivy config tfplan --output trivy.out
+  856  cat trivy.out
+  857  history
+  858  trivy config --output trivy.out /aws
+  859  trivy config --output trivy.out ./aws
+  860  cat trivy.out
+  861  trivy config --output trivy.out ./azure
+  862  cat trivy.out
+  863  trivy config --output reports/trivy.out ./azure
+  864  cd ..
+  865  ls
+  866  code .
+  867  pwsh
+  868  terragrunt
+  869  cd git
+  870  ls
+  871  cd eks
+  872  ls
+  873  git branch
+  874  terraform init
+  875  touch terragrunt.hcl
+  876  ls
+  877  terragrunt init
+  878  terragrunt plan
+  879  tp
+  880  trivy config --output reports/trivy.out
+  881  history cat trivy
+  882  trivy config --output trivy.out .
+  883  cat trivy.out
+  884  ls
+  885  cat terragrunt.hcl
+  886  cd ~
+  887  ls
+  888  cd .ssh
+  889  ls
+  890  rm -rf id_rsa_gitlab-as
+  891  rm -rf id_rsa_gitlab-as.pub
+  892  ls
+  893  rm -rf known_hosts.old
+  894  cat known_hosts
+  895  vi known_hosts
+  896  if [ -f ~/.ssh/id_rsa_gitlab ]; then\n   echo "ssh key ~/.ssh/id_rsa_gitlab already exists. skipping..."\n   echo " "\n   echo "--- below is the public key for ~/.ssh/id_rsa_gitlab.pub"\n   echo "--- add it to your gitlab ssh key"\n   echo " "\n   cat ~/.ssh/id_rsa_gitlab.pub\n   echo " "\nelse\n   echo "creating gitlab ssh key..."\n   ssh-keygen -t rsa -b 4096 -C "steve@tiggus.com" -f ~/.ssh/id_rsa_gitlab -P ""\n\n   eval "$(ssh-agent -s)"\n\n   echo "\n   Host gitlab.com\n      HostName gitlab.com\n      PreferredAuthentications publickey\n      IdentityFile ~/.ssh/id_rsa_gitlab" >> ~/.ssh/config\n\n   ssh-add -K ~/.ssh/id_rsa_gitlab\n\n   echo " "\n   echo "--- below is the public key for ~/.ssh/id_rsa_gitlab.pub"\n   echo " "\n   echo "--- add it to your gitlab ssh key"\n   echo " "\n   cat ~/.ssh/id_rsa_gitlab.pub\n   echo " "\nfi
+  897  cd ~
+  898  pwd
+  899  cd git
+  900  ls
+  901  git clone git@gitlab.com:tiggus/yaml.git
+  902  cd yaml
+  903  code .
+  904  ls
+  905  git add .
+  906  git commit -m 'tf file'
+  907  ls
+  908  git push -u origin HEAD
+  909  ls
+  910  ls -lka
+  911  terraform validate --recursive
+  912  terraform validate -recursive
+  913  terraform validate -help
+  914  terraform init
+  915  terraform validate
+  916  git add -p
+  917  git push
+  918  git commit -m 'tf file'
+  919  git push
+  920  history
+  921  ls
+  922  cd ..
+  923  ls
+  924  cd archive
+  925  ls
+  926  cd aker
+  927  ls
+  928  cd ..
+  929  cd cep-iac-components
+  930  code .
+  931  cd ,,
+  932  cd ..
+  933  cd ci-templates
+  934  git branch
+  935  git checkout cep-v2
+  936  code .
+  937  cd ..
+  938  cd cep-infra-pipelines
+  939  code .
+  940  cd ..
+  941  ls
+  942  cd setup-terraform
+  943  ls
+  944  code .
+  945  cd ..
+  946  ls
+  947  cd ..
+  948  ls
+  949  cd yaml
+  950  ls
+  951  code .
+  952  history 
+  953  git add .
+  954  git commit -m 'terraform'
+  955  git push
+  956  git add .
+  957  git commit -m 'terraform'
+  958  git push
+  959  history | grep curl
+  960  git add ,
+  961  git add .
+  962  git commit -m 'tf binary'
+  963  git push
+  964  terraform format -check=true
+  965  terraform fmt -check=true
+  966  terraform fmt
+  967  terraform fmt -check=true
+  968  which terraform
+  969  git add .
+  970  git commit -m 'tf binaries'
+  971  git push
+  972  git add .
+  973  git commit -m 'tf vers'
+  974  git push
+  975  git add .
+  976  git commit -m 'x86'
+  977  git push
+  978  git add .
+  979  git commit -m 'arch'
+  980  git push
+  981  git add .
+  982  git commit -m 'arch'
+  983  git push
+  984  curl -o terraform https://releases.hashicorp.com/terraform/1.13.5/terraform_1.13.5_linux_amd64.zip
+  985  ls
+  986  ./terraform
+  987  git add .
+  988  git commit -m 'tf image'
+  989  git push
+  990  ls
+  991  ./terraform
+  992  history | grep curl
+  993  curl -O -L https://releases.hashicorp.com/terraform/1.13.5/terraform_1.13.5_linux_amd64.zip
+  994  ls
+  995  unzip terraform_1.13.5_linux_amd64.zip
+  996  ls
+  997  rm -rf terraform
+  998  ls
+  999  unzip terraform_1.13.5_linux_amd64.zip
+ 1000  unzip terraform_1.13.5_linux_amd64.zip -y
+ 1001  unzip --help
+ 1002  unzip -u
+ 1003  unzip terraform_1.13.5_linux_amd64.zip -u
+ 1004  unzip -u terraform_1.13.5_linux_amd64.zip
+ 1005  ls
+ 1006  git add .
+ 1007  git commit -m 'tf unzip'
+ 1008  git push
+ 1009  git add .
+ 1010  git commit -m 'tf unzip'
+ 1011  git push
+ 1012  git add .
+ 1013  git commit -m 'tf version'
+ 1014  git push
+ 1015  git add .
+ 1016  git commit -m 'fix tf'
+ 1017  git push
+ 1018  git add .
+ 1019  git commit -m 'needs'
+ 1020  git push
+ 1021  git add .
+ 1022  git commit -m 'trivy'
+ 1023  git push
+ 1024  git add .
+ 1025  git commit -m 'tflint'
+ 1026  git add .
+ 1027  git commit -m 'tflint'
+ 1028  git add .
+ 1029  git commit -m 'tflint'
+ 1030  git push
+ 1031  git add -p
+ 1032  git commit -m 'hidden'
+ 1033  git push
+ 1034  ls
+ 1035  terraform init
+ 1036  tp
+ 1037  trivy config --output trivy.out .
+ 1038  history | grep trivy
+ 1039  trivy config plan.tfplan --output trivy.out .
+ 1040  trivy config plan.tfplan --output trivy.out
+ 1041  trivy config plan.tfplan
+ 1042  trivy config plan.tfplan --output trivy.out
+ 1043  cat trivy.out
+ 1044  history
+ 1045  ls -la ~/.ssh
+ 1046  terraform plan -input=false -out=terraform.tfplan
+ 1047  ls -la
+ 1048  ls
+ 1049  ls -la
+ 1050  rm -rf .terraform
+ 1051  rm -rf .terraform.lock.hcl
+ 1052  rm -rf plan.tfplan
+ 1053  rm -rf terraform.tfplan
+ 1054  ls -la
+ 1055  rm -rf trivy.out
+ 1056  git add .
+ 1057  git commit -m 'uploads'
+ 1058  git push
+ 1059  git add .
+ 1060  git commit -m 'add hidden to plan'
+ 1061  git push
+ 1062  git add .
+ 1063  git commit -m 'add gitignore"\n'
+ 1064  git push
+ 1065  terraform plan -input=false -out=terraform.tfplan
+ 1066  terraform init
+ 1067  terraform plan -input=false -out=terraform.tfplan
+ 1068  terraform init
+ 1069  terraform plan -input=false -out=terraform.tfplan
+ 1070  git add .
+ 1071  git commit -m 'plan only'
+ 1072  git push
+ 1073  terraform init
+ 1074  terraform plan -input=false -out=terraform.tfplan
+ 1075  terraform init
+ 1076  terraform plan -input=false -out=terraform.tfplan
+ 1077  terraform init
+ 1078  terraform plan -input=false -out=terraform.tfplan
+ 1079  git add .
+ 1080  git commit -m 'test plan'
+ 1081  git push
+ 1082  ls
+ 1083  mkdir reports
+ 1084  ls
+ 1085  mkdir /reports
+ 1086  rm -rf reports
+ 1087  mkdir /reports
+ 1088  mkdir ./reports
+ 1089  ls -la
+ 1090  ls -la /reports
+ 1091  ls -la reports
+ 1092  ls -la ./reports
+ 1093  touch reports/out
+ 1094  ls -la ./reports
+ 1095  git add .
+ 1096  git commit -m 'reports'
+ 1097  git push
+ 1098  git add -p
+ 1099  git add .
+ 1100  git commit -m 'reports'
+ 1101  git push
+ 1102  tflint
+ 1103  history | grep tflint
+ 1104  tflint --version
+ 1105  git add .
+ 1106  git commit -m 'tflint'
+ 1107  git push
+ 1108  tflint --init
+ 1109  ls 
+ 1110  tflint --init
+ 1111  ls -la
+ 1112  tflint --init
+ 1113  tflint
+ 1114  git add .
+ 1115  git commit -m 'tflint'
+ 1116  git push
+ 1117  tflint --help
+ 1118  tflint --color
+ 1119  tflint --color --recursive
+ 1120  tflint --color --recursive | tee tflint.out
+ 1121  cat tflint.out
+ 1122  tflint --color --recursive | tee tflint.out
+ 1123  git add .
+ 1124  git commit -m 'tflint'
+ 1125  git oush
+ 1126  git push
+ 1127  git add .
+ 1128  git commit -m 'needs'
+ 1129  git push
+ 1130  tflint --help
+ 1131  git add .
+ 1132  git commit -m 'force success'
+ 1133  git push
+ 1134  git add .
+ 1135  git commit -m 'checkov soft'
+ 1136  git push
+ 1137  git add .
+ 1138  git commit -m 'deploy'
+ 1139  git push
+ 1140  git checkout -b pipelines
+ 1141  git push -u origin HEAD
+ 1142  git add .
+ 1143  git commit -m 'changed readme'
+ 1144  git push
+ 1145  git add .
+ 1146  git commit -m 'changed readme'
+ 1147  git push
+ 1148  git add .
+ 1149  git commit -m 'changed readme'
+ 1150  git push
+ 1151  git add .
+ 1152  git commit -m 'deploy'
+ 1153  git push
+ 1154  terraform fmt -check=true --recursive
+ 1155  git add .
+ 1156  git commit -m 'deploy'
+ 1157  git push
+ 1158  terraform fmt -check=0 --recursive
+ 1159  terraform fmt -check --recursive
+ 1160  echo $RETURN_CODE
+ 1161  echo $_
+ 1162  echo $?
+ 1163  terraform fmt -check --recursive
+ 1164  echo $?
+ 1165  terraform fmt -check --recursive
+ 1166  echo $?
+ 1167  terraform fmt -check=0 --recursive
+ 1168  echo $?
+ 1169  git add .
+ 1170  git commit -m 'deploy'
+ 1171  git push
+ 1172  git add .
+ 1173  git commit -m 'deploy'
+ 1174  git push
+ 1175  git add .
+ 1176  git commit -m 'deploy'
+ 1177  git push
+ 1178  git add .
+ 1179  git commit -m 'deploy'
+ 1180  git push
+ 1181  git add .
+ 1182  git commit -m 'manual'
+ 1183  git push
+ 1184  git add .
+ 1185  git commit -m 'manual'
+ 1186  git push
+ 1187  git add .
+ 1188  git commit -m 'manual'
+ 1189  git push
+ 1190  git add .
+ 1191  git commit -m 'upd ref'
+ 1192  git push
+ 1193  git add .
+ 1194  git commit -m 'push olny'
+ 1195  git commit -m 'push only'
+ 1196  git push
+ 1197  git add .
+ 1198  git commit -m 'push only'
+ 1199  git push
+ 1200  git add .
+ 1201  git commit -m 'push only'
+ 1202  git push
+ 1203  git add .
+ 1204  git commit -m 'pipe source'
+ 1205  git push
+ 1206  git add .
+ 1207  git commit -m 'fixed typo'
+ 1208  git push
+ 1209  git add .
+ 1210  git commit -m 'merge fix'
+ 1211  git push
+ 1212  git add .
+ 1213  git commit -m 'includes'
+ 1214  git push
+ 1215  pwsh
+ 1216  ls -la
+ 1217  git dd .
+ 1218  git add .
+ 1219  git commit -m 'drawio'
+ 1220  git push
+ 1221  git add .
+ 1222  git commit -m 'drawio'
+ 1223  git push
+ 1224  git add .
+ 1225  git commit -m 'drawio'
+ 1226  git push
+ 1227  teraform plan
+ 1228  terraform plan
+ 1229  cho " "\necho "--- customise vscode ---"\necho " "\ncode --install-extension hashicorp.terraform --force\ncode --install-extension ms-vscode.powershell --force\ncode --install-extension ms-vscode.makefile-tools --force
+ 1230  Get-MrParameterCount -ParameterName ComputerName, Computer, ServerName, Host, Machine
+ 1231  flask
+ 1232  cd ..
+ 1233  ls
+ 1234  git clone git@github.com:tiggus/flask.git
+ 1235  cd flask
+ 1236  ls
+ 1237  touch readme.md
+ 1238  echo readme > readme.md
+ 1239  git add .
+ 1240  git commit -m 'readme'
+ 1241  git push
+ 1242  cd git
+ 1243  ls
+ 1244  terraform --version
+ 1245  which terraform
+ 1246  tfenv list
+ 1247  tfenv use 1.13.4
+ 1248  tfenv use 1.15.7
+ 1249  tfenv use 1.5.7
+ 1250  ls
+ 1251  cd eks
+ 1252  code .
+ 1253  terraform fmt
+ 1254  terraform validate
+ 1255  terraform plan
+ 1256  terraform apply
+ 1257  terraform plan
+ 1258  terraform apply
+ 1259  terraform state show
+ 1260  terraform state show *
+ 1261  terraform apply
+ 1262  terraform plan
+ 1263  git checkout -b soniya
+ 1264  git commit -m 'two s3'
+ 1265  git add .
+ 1266  git commit -m 'two s3'
+ 1267  git push -u origin HEAD
+ 1268  gh browse
+ 1269  terraform state list
+ 1270  terraform state show aws_s3_bucket.terraform1
+ 1271  terraform apply
+ 1272  terraform plan
+ 1273  git add -p
+ 1274  git commit -m 'remove second s3'
+ 1275  git push
+ 1276  tp
+ 1277  ls -la
+ 1278  cat tfplan
+ 1279  terraform env list
+ 1280  terraform workspace list
+ 1281  teraform workspace select dev
+ 1282  terraform workspace select dev
+ 1283  terraform plan
+ 1284  code .
+ 1285  terraform plan
+ 1286  terraform plan -generate-config-out=soniya.tf
