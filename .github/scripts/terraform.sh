@@ -27,7 +27,7 @@ format_list_html() {
     if [ -z "$1" ]; then 
         echo "<p>none</p>"
     else
-    echo "$1" | sed 's/^/<li>/' | sed 's/$/<\/li>/' | paste -sd " " -
+    echo "$1" | sed 's/^/<p>/' | sed 's/$/<\/p>/' | paste -sd " " -
 fi
 }
 
@@ -37,7 +37,7 @@ destroy_list_html=$(format_list_html "$destroy_resources")
 
 # build html
 html_content=$(cat <<EOF
-<h2>terraform plan summary: ${1}</h2>
+<h2>terraform plan summary :: ${1}</h2>
 <h3>overview</h3>
 <table border="1" cellspacing="0" cellpadding="3" >
   <thead>
@@ -61,7 +61,7 @@ html_content=$(cat <<EOF
     <tr>
       <td><strong>destroy</strong></td>
       <td>${destroy}</td>
-      <td><ul>${destroy_list_html}</ul></td>
+      <td>${destroy_list_html}</td>
     </tr>
   </tbody>
 </table>
