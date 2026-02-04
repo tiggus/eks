@@ -16,21 +16,21 @@ permissions:
   contents: read    # This is required for actions/checkout
 
 jobs:
-  workflow:
+  summary:
     runs-on: ubuntu-22.04
     steps:
     - name: publish_summary 
       if: always()
       shell: bash
       run: | 
-        echo "## 🐵 workflow inputs" >> $GITHUB_STEP_SUMMARY
+        echo "## 🐵 workflow inputs :: $" >> $GITHUB_STEP_SUMMARY
         echo "" >> $GITHUB_STEP_SUMMARY
         echo "| input | value |" >> $GITHUB_STEP_SUMMARY
         echo "| :--------- | :--------- |" >> $GITHUB_STEP_SUMMARY
         if [ -n "${{ inputs.tag_version }}" ]; then
           echo "| tag version | ${{ inputs.tag_version }} |" >> $GITHUB_STEP_SUMMARY
         else
-          echo "| branch name | ${{ github.ref_name }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| branch | ${{ github.ref_name }} |" >> $GITHUB_STEP_SUMMARY
         fi
 
   version:
@@ -73,7 +73,7 @@ jobs:
         id: generate_summary
         shell: bash
         run: |
-          source .github/scripts/terraform.sh dev
+          source .github/scripts/terraform.sh $TF_ENV
   
   infracost:
     name: infracost
