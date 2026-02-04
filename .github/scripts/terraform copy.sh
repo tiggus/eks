@@ -16,12 +16,29 @@ add=$(echo $summary | grep -oP '(\d+)(?= to add)' || echo "0")
 change=$(echo $summary | grep -oP '(\d+)(?= to change)' || echo "0")
 destroy=$(echo $summary | grep -oP '(\d+)(?= to destroy)' || echo "0")
 
+echo $add $change $destroy
+
+# extract counts mac
+# add=$(echo $summary | sed -nr 's/.*( |^)([0-9]+) to add.*/\2/p')
+# if [ -z $add ]; then
+#      add="0"
+# fi
+# change=$(echo $summary | sed -nr 's/.*( |^)([0-9]+) to change.*/\2/p')
+# if [ -z $change ]; then
+#      change="0"
+# fi
+# destroy=$(echo $summary | sed -nr 's/.*( |^)([0-9]+) to destroy.*/\2/p')
+# if [ -z $destroy ]; then
+#      destroy="0"
+# fi
+
 # extract resource names - adjust patterns if output format changes
-add_resources=$(grep -E '^  #' /tmp/${1}.tfplan | grep 'will be created' | sed 's/# //; s/ will be created//' || true)
+cat /tmp/${1}.tfplan
+# add_resources=$(grep -E '^  # ' /tmp/dev.tfplan | grep 'will be created' | sed 's/# //; s/ will be created//' || true)
 # change_resources=$(grep -E '^  # ' /tmp/dev.tfplan | grep 'will be updated' | sed 's/# //; s/ will be updated//' || true)
 # destroy_resources=$(grep -E '^  # ' /tmp/dev.tfplan | grep 'will be destroyed' | sed 's/# //; s/ will be destroyed//' || true)
 # destroy_resources=$(grep -E '^  # ' /tmp/dev.tfplan | grep 'must be replaced' | sed 's/# //; s/ will be replaced//' || true)
-echo $add_resources
+# echo $add_resources
 
 # grep -E '^  # ' /tmp/dev.tfplan | grep 'will be created' 
 # grep -E '^  # ' /tmp/dev.tfplan | grep 'will be created' | sed 's/# //; s/ will be created//'
