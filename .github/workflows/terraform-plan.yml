@@ -2,6 +2,10 @@ name: terraform-plan
 on:
   push:
   workflow_dispatch:
+    inputs: 
+      tag_version: 
+        description: 'tag version; if not set default will be used'
+        required: false
 
 env:
   AWS_REGION : "us-east-1"
