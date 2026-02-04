@@ -15,13 +15,20 @@ jobs:
   publish_summary:
     runs-on: ubuntu-22.04
     steps:
-    - name: publish_summary
+    - name: steps 
       if: always()
       shell: bash
       run: | 
-        echo "## workflow inputs" >> $GITHUB_STEP_SUMMARY
+        echo "## 🐵 workflow inputs" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "| **input** | **value** |" >> $GITHUB_STEP_SUMMARY
+        echo "| --------- | --------- |" >> $GITHUB_STEP_SUMMARY
+        if [ -n "${{ inputs.tag_version }}" ]; then
+          echo "| tag version | ${{ $inputs.tag_version }}" | >> $GITHUB_STEP_SUMMARY
+        else
+          echo "| branch name | ${{ $github.ref_name }}" | >> $GITHUB_STEP_SUMMARY
+        fi
 
-    
   version:
     runs-on: ubuntu-22.04
     needs: [publish_summary]

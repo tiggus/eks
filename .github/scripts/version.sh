@@ -33,5 +33,7 @@ fi
 
 echo "new version: $new_version"
 
-# echo "version=$new_version" >> $GITHUB_OUTPUT
+echo "version=$new_version" >> $GITHUB_OUTPUT
+
+ICON
 
