@@ -16,14 +16,14 @@ permissions:
   contents: read    # This is required for actions/checkout
 
 jobs:
-  summary:
+  inputs:
     runs-on: ubuntu-22.04
     steps:
     - name: publish_summary 
       if: always()
       shell: bash
       run: | 
-        echo "## 🐵 workflow inputs :: $" >> $GITHUB_STEP_SUMMARY
+        echo "## 🐵 workflow inputs :: $TF_ENV" >> $GITHUB_STEP_SUMMARY
         echo "" >> $GITHUB_STEP_SUMMARY
         echo "| input | value |" >> $GITHUB_STEP_SUMMARY
         echo "| :--------- | :--------- |" >> $GITHUB_STEP_SUMMARY
@@ -62,7 +62,6 @@ jobs:
           terraform workspace select -or-create $TF_ENV
       - name: terraform plan
         run: |
-          terraform plan -out=plan.tfplan
           terraform plan | tee /tmp/$TF_ENV.tfplan
       - uses: actions/upload-artifact@v4
         with: 
