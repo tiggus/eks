@@ -68,6 +68,11 @@ jobs:
           name: terraform
           path: ./plan.tfplan
           retention-days: 9
+      - name: generate terraform summary
+        id: generate_summary
+        shell: bash
+        run: |
+          source .github/scripts/terraform.sh dev
   
   infracost:
     name: infracost
@@ -81,6 +86,8 @@ jobs:
       - name: cost estimate baseline
         run: |
           infracost breakdown --path=. --show-skipped
+
+  
 
  
 # jobs:
