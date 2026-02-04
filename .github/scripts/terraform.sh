@@ -37,7 +37,7 @@ destroy_list_html=$(format_list_html "$destroy_resources")
 
 # build html
 html_content=$(cat <<EOF
-<h2>terraform plan summary :: ${1}</h2>
+<h2>🙈 terraform plan summary :: ${1}</h2>
 <h3>overview</h3>
 <table border="1" cellspacing="0" cellpadding="3" >
   <thead>
@@ -54,19 +54,19 @@ html_content=$(cat <<EOF
       <td valign="top">${add_list_html}</td>
     </tr>
     <tr>
-      <td><strong>change</strong></td>
-      <td>${change}</td>
-      <td>${change_list_html}</td>
+      <td valign="top"><strong>change</strong></td>
+      <td valign="top">${change}</td>
+      <td valign="top">${change_list_html}</td>
     </tr>
     <tr>
-      <td><strong>destroy</strong></td>
-      <td>${destroy}</td>
-      <td>${destroy_list_html}</td>
+      <td valign="top"><strong>destroy</strong></td>
+      <td valign="top">${destroy}</td>
+      <td valign="top">${destroy_list_html}</td>
     </tr>
   </tbody>
 </table>
 
-<h4>note: review detailed output prior to approval</h4>
+<h4>👀 review detailed output prior to approval</h4>
 EOF
 )
 
