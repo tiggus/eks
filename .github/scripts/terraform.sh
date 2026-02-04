@@ -48,9 +48,9 @@ html_content=$(cat <<EOF
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td vertical-align:top"><strong>add</strong></td>
-      <td vertical-align:top">${add}</td>
+    <tr vertical-align:top>
+      <td><strong>add</strong></td>
+      <td>${add}</td>
       <td>${add_list_html}</td>
     </tr>
     <tr>
