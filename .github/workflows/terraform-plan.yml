@@ -26,7 +26,7 @@ jobs:
         echo "## 🐵 workflow inputs" >> $GITHUB_STEP_SUMMARY
         echo "" >> $GITHUB_STEP_SUMMARY
         echo "| input | value |" >> $GITHUB_STEP_SUMMARY
-        echo "| --------- | --------- |" >> $GITHUB_STEP_SUMMARY
+        echo "| :--------- | :--------- |" >> $GITHUB_STEP_SUMMARY
         if [ -n "${{ inputs.tag_version }}" ]; then
           echo "| tag version | ${{ inputs.tag_version }} |" >> $GITHUB_STEP_SUMMARY
         else
