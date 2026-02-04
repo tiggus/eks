@@ -38,7 +38,7 @@ cat /tmp/${1}.tfplan
 # destroy_resources=$(grep -E '^  # ' /tmp/dev.tfplan | grep 'will be destroyed' | sed 's/# //; s/ will be destroyed//' || true)
 # destroy_resources=$(grep -E '^  # ' /tmp/dev.tfplan | grep 'must be replaced' | sed 's/# //; s/ will be replaced//' || true)
 # echo $add_resources
-grep -E '^  # ' /tmp/${1}.tfplan 
+grep --help
 echo "test"
 # grep -E '^  # ' /tmp/dev.tfplan | grep 'will be created' 
 # grep -E '^  # ' /tmp/dev.tfplan | grep 'will be created' | sed 's/# //; s/ will be created//'
