@@ -51,12 +51,12 @@ html_content=$(cat <<EOF
     <tr>
       <td><strong>add</strong></td>
       <td>${add}</td>
-      <td><ul margin: 0; padding: 0;>${add_list_html}</ul></td>
+      <td>${add_list_html}</td>
     </tr>
     <tr>
       <td><strong>change</strong></td>
       <td>${change}</td>
-      <td><ul margin: 0; padding: 0;>${change_list_html}</ul></td>
+      <td>${change_list_html}</td>
     </tr>
     <tr>
       <td><strong>destroy</strong></td>
