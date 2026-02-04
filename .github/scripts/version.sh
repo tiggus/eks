@@ -39,7 +39,7 @@ echo "## 🚥 version" >> $GITHUB_STEP_SUMMARY
 echo "" >> $GITHUB_STEP_SUMMARY
 echo "| key | value |" >> $GITHUB_STEP_SUMMARY
 echo "| :--------- | :--------- |" >> $GITHUB_STEP_SUMMARY
-echo "| latest | ${latest_version } |" >> $GITHUB_STEP_SUMMARY
-echo "| new | ${new_version } |" >> $GITHUB_STEP_SUMMARY
-echo "| status | $icon ${new_version }|" >> $GITHUB_STEP_SUMMARY
+echo "| latest | ${latest_version} |" >> $GITHUB_STEP_SUMMARY
+echo "| new | ${new_version} |" >> $GITHUB_STEP_SUMMARY
+echo "| status | $icon ${new_version} |" >> $GITHUB_STEP_SUMMARY
 
