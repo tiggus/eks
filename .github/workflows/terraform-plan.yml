@@ -35,7 +35,7 @@ jobs:
 
   version:
     runs-on: ubuntu-22.04
-    needs: [publish_summary]
+    needs: [workflow]
     outputs:
       version: ${{ steps.git_version.outputs.version }}
     steps:
