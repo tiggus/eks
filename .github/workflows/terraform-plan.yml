@@ -30,7 +30,7 @@ jobs:
         if [ -n "${{ inputs.tag_version }}" ]; then
           echo "| tag version | ${{ inputs.tag_version }}" | >> $GITHUB_STEP_SUMMARY
         else
-          echo "| branch name | ${{ $github.ref_name }}" | >> $GITHUB_STEP_SUMMARY
+          echo "| branch name | ${{ github.ref_name }}" | >> $GITHUB_STEP_SUMMARY
         fi
 
   version:
