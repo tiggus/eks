@@ -62,7 +62,8 @@ jobs:
           terraform workspace select -or-create $TF_ENV
       - name: terraform plan
         run: |
-          terraform plan -out=plan.tfplan | tee /tmp/$TF_ENV.tfplan
+          terraform plan -out=plan.tfplan
+          terraform plan | tee /tmp/$TF_ENV.tfplan
       - uses: actions/upload-artifact@v4
         with: 
           name: terraform
