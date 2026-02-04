@@ -16,6 +16,7 @@ add=$(echo $summary | grep -oP '(\d+)(?= to add)' || echo "0")
 change=$(echo $summary | grep -oP '(\d+)(?= to change)' || echo "0")
 destroy=$(echo $summary | grep -oP '(\d+)(?= to destroy)' || echo "0")
 
+echo $add $change $destroy
 
 # extract counts mac
 # add=$(echo $summary | sed -nr 's/.*( |^)([0-9]+) to add.*/\2/p')
@@ -38,8 +39,7 @@ cat /tmp/${1}.tfplan
 # destroy_resources=$(grep -E '^  # ' /tmp/dev.tfplan | grep 'will be destroyed' | sed 's/# //; s/ will be destroyed//' || true)
 # destroy_resources=$(grep -E '^  # ' /tmp/dev.tfplan | grep 'must be replaced' | sed 's/# //; s/ will be replaced//' || true)
 # echo $add_resources
-grep --help
-echo "test"
+
 # grep -E '^  # ' /tmp/dev.tfplan | grep 'will be created' 
 # grep -E '^  # ' /tmp/dev.tfplan | grep 'will be created' | sed 's/# //; s/ will be created//'
 
