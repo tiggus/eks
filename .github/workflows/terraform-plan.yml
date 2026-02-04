@@ -16,10 +16,10 @@ permissions:
   contents: read    # This is required for actions/checkout
 
 jobs:
-  publish_summary:
+  workflow:
     runs-on: ubuntu-22.04
     steps:
-    - name: steps 
+    - name: publish_summary 
       if: always()
       shell: bash
       run: | 
