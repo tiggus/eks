@@ -18,9 +18,9 @@ destroy=$(echo $summary | grep -oP '(\d+)(?= to destroy)' || echo "0")
 
 # extract resource names - adjust patterns if output format changes
 add_resources=$(grep -E '^  # ' /tmp/${1}_summary | grep 'will be created' | sed 's/# //; s/ will be created//' || true)
-change_resources=$(grep -E '  #' /tmp/${1}_summary | grep 'will be updated' | sed 's/# //; s/ will be updated.*//' || true)
-destroy_resources=$(grep -E '  #' /tmp/${1}_summary | grep 'will be destroyed' | sed 's/# //; s/ will be destroyed//' || true)
-destroy_resources=$(grep -E '  #' /tmp/${1}_summary | grep 'must be replaced' | sed 's/# //; s/ must be replaced//' || true)
+change_resources=$(grep -E '^  # ' /tmp/${1}_summary | grep 'will be updated' | sed 's/# //; s/ will be updated.*//' || true)
+destroy_resources=$(grep -E '^  # ' /tmp/${1}_summary | grep 'will be destroyed' | sed 's/# //; s/ will be destroyed//' || true)
+destroy_resources=$(grep -E '^  # ' /tmp/${1}_summary | grep 'must be replaced' | sed 's/# //; s/ must be replaced//' || true)
 
 # format as html function 
 format_list_html() {
@@ -37,7 +37,7 @@ destroy_list_html=$(format_list_html "$destroy_resources")
 
 # build html
 html_content=$(cat <<EOF
-<h2>terraform plan summary ${1}</h2>
+<h2>terraform plan summary: ${1}</h2>
 <h3>overview</h3>
 <table border="1" cellspacing="0" cellpadding="3" >
   <thead>
@@ -51,12 +51,12 @@ html_content=$(cat <<EOF
     <tr>
       <td><strong>add</strong></td>
       <td>${add}</td>
-      <td><ul>${add_list_html}</ul></td>
+      <td><ul margin: 0; padding: 0;>${add_list_html}</ul></td>
     </tr>
     <tr>
       <td><strong>change</strong></td>
       <td>${change}</td>
-      <td><ul>${change_list_html}</ul></td>
+      <td><ul margin: 0; padding: 0;>${change_list_html}</ul></td>
     </tr>
     <tr>
       <td><strong>destroy</strong></td>
