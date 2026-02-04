@@ -38,10 +38,10 @@ change_resources=$(grep -E '^  # ' /tmp/dev.tfplan | grep 'will be updated' | se
 destroy_resources=$(grep -E '^  # ' /tmp/dev.tfplan | grep 'will be destroyed' | sed 's/# //; s/ will be destroyed//' || true)
 destroy_resources=$(grep -E '^  # ' /tmp/dev.tfplan | grep 'must be replaced' | sed 's/# //; s/ will be replaced//' || true)
 echo $add_resources
-echo "test"
 grep -E '^  # ' /tmp/dev.tfplan 
-grep -E '^  # ' /tmp/dev.tfplan | grep 'will be created' 
-grep -E '^  # ' /tmp/dev.tfplan | grep 'will be created' | sed 's/# //; s/ will be created//'
+echo 'grep'
+# grep -E '^  # ' /tmp/dev.tfplan | grep 'will be created' 
+# grep -E '^  # ' /tmp/dev.tfplan | grep 'will be created' | sed 's/# //; s/ will be created//'
 
 
   # random_id.random will be created
