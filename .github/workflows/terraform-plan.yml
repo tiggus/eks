@@ -12,6 +12,29 @@ permissions:
   contents: read    # This is required for actions/checkout
 
 jobs:
+  publish_summary:
+    runs-on: ubuntu-22.04
+    steps:
+    - name: publish_summary
+      if: always()
+      shell: bash
+      run: | 
+        echo "## workflow inputs" >> $GITHUB_STEP_SUMMARY
+
+    
+  version:
+    runs-on: ubuntu-22.04
+    needs: [publish_summary]
+    outputs:
+      version: ${{ steps.git_version.outputs.version }}
+    steps:
+      - name: checkout
+        uses: actions/checkout@v5
+      - name: determine version
+        id: git_version
+        run: |
+          . ${GITHUB_WORKSPACE}/.github/scripts/version.sh
+
   terraform-plan:
     runs-on: ubuntu-22.04
     steps:
