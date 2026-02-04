@@ -17,7 +17,7 @@ change=$(echo $summary | grep -oP '(\d+)(?= to change)' || echo "0")
 destroy=$(echo $summary | grep -oP '(\d+)(?= to destroy)' || echo "0")
 
 # extract resource names - adjust patterns if output format changes
-add_resources=$(grep -E '^  #' /tmp/${1}.tfplan | grep 'will be created' | sed 's/# //; s/ will be created//' || true)
+add_resources=$(grep -E '  #' /tmp/${1}.tfplan | grep 'will be created' | sed 's/# //; s/ will be created//' || true)
 # change_resources=$(grep -E '^  # ' /tmp/dev.tfplan | grep 'will be updated' | sed 's/# //; s/ will be updated//' || true)
 # destroy_resources=$(grep -E '^  # ' /tmp/dev.tfplan | grep 'will be destroyed' | sed 's/# //; s/ will be destroyed//' || true)
 # destroy_resources=$(grep -E '^  # ' /tmp/dev.tfplan | grep 'must be replaced' | sed 's/# //; s/ will be replaced//' || true)
