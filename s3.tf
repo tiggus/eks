@@ -26,6 +26,22 @@ resource "aws_s3_bucket_logging" "secure" {
   }
 }
 
+resource "aws_kms_key" "secure" {
+  description             = "this key is used to encrypt bucket objects"
+  deletion_window_in_days = 3
+}
+
+resource "aws_s3_bucket_server_side_encryption_configuration" "secure" {
+  bucket = aws_s3_bucket.secure.id
+
+  rule {
+    apply_server_side_encryption_by_default {
+      kms_master_key_id = aws_kms_key.secure.arn
+      sse_algorithm     = "aws:kms"
+    }
+  }
+}
+
 data "aws_caller_identity" "current" {}
 
 resource "aws_s3_bucket" "logging" {
@@ -52,3 +68,39 @@ resource "aws_s3_bucket_policy" "logging" {
   bucket = aws_s3_bucket.logging.bucket
   policy = data.aws_iam_policy_document.logging_bucket_policy.json
 }
+
+data "aws_iam_policy_document" "topic" {
+  statement {
+    effect = "Allow"
+
+    principals {
+      type        = "Service"
+      identifiers = ["s3.amazonaws.com"]
+    }
+
+    actions   = ["SNS:Publish"]
+    resources = ["arn:aws:sns:*:*:s3-event-notification-topic"]
+
+    condition {
+      test     = "ArnLike"
+      variable = "aws:SourceArn"
+      values   = [aws_s3_bucket.secure.arn]
+    }
+  }
+}
+resource "aws_sns_topic" "topic" {
+  name   = "s3-event-notification-topic"
+  policy = data.aws_iam_policy_document.topic.json
+}
+
+resource "aws_s3_bucket_notification" "bucket_notification" {
+  bucket = aws_s3_bucket.secure.id
+
+  topic {
+    topic_arn     = aws_sns_topic.topic.arn
+    events        = ["s3:ObjectCreated:*"]
+    filter_suffix = ".log"
+  }
+}
+
+
