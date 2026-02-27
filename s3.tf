@@ -14,19 +14,6 @@ resource "aws_s3_bucket" "secure" {
   bucket = "${var.secure_bucket}-${random_id.random.hex}"
 }
 
-resource "aws_s3_bucket_acl" "secure" {
-  bucket = aws_s3_bucket.secure.id
-  acl    = "private"
-}
-
-resource "aws_s3_bucket_versioning" "secure" {
-  bucket = aws_s3_bucket.secure.id
-  versioning_configuration {
-    status = "Enabled"
-    mfa_delete = "Enabled"
-  }
-}
-
 resource "aws_s3_bucket_logging" "secure" {
   bucket = aws_s3_bucket.secure.bucket
 
