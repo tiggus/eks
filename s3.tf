@@ -28,7 +28,7 @@ resource "aws_s3_bucket_logging" "secure" {
 
 resource "aws_kms_key" "secure" {
   description             = "this key is used to encrypt bucket objects"
-  deletion_window_in_days = 3
+  deletion_window_in_days = 9
 }
 
 resource "aws_s3_bucket_server_side_encryption_configuration" "secure" {
