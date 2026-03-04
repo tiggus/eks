@@ -46,6 +46,9 @@ data "aws_caller_identity" "current" {}
 
 resource "aws_s3_bucket" "logging" {
   bucket = "access-logging-${random_id.random.hex}"
+  lifecycle {
+    prevent_destroy = true
+  }
 }
 
 data "aws_iam_policy_document" "logging_bucket_policy" {
