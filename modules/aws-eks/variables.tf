@@ -28,6 +28,7 @@ variable "cluster_root" {
 
 locals {
   cluster_name = "${var.cluster_root}-${random_string.suffix.result}"
+  #cluster_sg = aws_eks_cluster.cluster.vpc_config.security_group_ids
 }
 
 variable "create_cluster" {

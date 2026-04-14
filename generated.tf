@@ -1,74 +1,11 @@
+# __generated__ by Terraform
+# Please review these resources and move them into your main configuration files.
+
+# __generated__ by Terraform from "arn:aws:secretsmanager:us-east-1:791860731874:secret:rds-secret-BvnJXb"
 
 
-# resource "aws_db_instance" "aurora" {
-#   allocated_storage                     = 20
-#   allow_major_version_upgrade           = null
-#   apply_immediately                     = null
-#   auto_minor_version_upgrade            = true
-#   availability_zone                     = "us-east-1c"
-#   backup_retention_period               = 1
-#   backup_target                         = "region"
-#   backup_window                         = "07:00-07:30"
-#   ca_cert_identifier                    = "rds-ca-rsa2048-g1"
-#   character_set_name                    = null
-#   copy_tags_to_snapshot                 = true
-#   custom_iam_instance_profile           = null
-#   customer_owned_ip_enabled             = false
-#   database_insights_mode                = "standard"
-#   db_name                               = null
-#   db_subnet_group_name                  = "default-vpc-0f14aa63a2dd726ad"
-#   dedicated_log_volume                  = false
-#   delete_automated_backups              = true
-#   deletion_protection                   = false
-#   domain                                = null
-#   domain_auth_secret_arn                = null
-#   domain_dns_ips                        = null
-#   domain_fqdn                           = null
-#   domain_iam_role_name                  = null
-#   domain_ou                             = null
-#   enabled_cloudwatch_logs_exports       = []
-#   engine                                = "postgres"
-#   engine_lifecycle_support              = "open-source-rds-extended-support-disabled"
-#   engine_version                        = "17.6"
-#   final_snapshot_identifier             = null
-#   iam_database_authentication_enabled   = false
-#   identifier                            = "aurora-db"
-#   identifier_prefix                     = null
-#   instance_class                        = "db.t4g.micro"
-#   iops                                  = 0
-#   kms_key_id                            = "arn:aws:kms:us-east-1:791860731874:key/30719407-e8f6-4238-899a-c2201d576f09"
-#   license_model                         = "postgresql-license"
-#   maintenance_window                    = "thu:03:51-thu:04:21"
-#   manage_master_user_password           = null
-#   master_user_secret_kms_key_id         = null
-#   max_allocated_storage                 = 1000
-#   monitoring_interval                   = 60
-#   monitoring_role_arn                   = "arn:aws:iam::791860731874:role/rds-monitoring-role"
-#   multi_az                              = false
-#   nchar_character_set_name              = null
-#   network_type                          = "IPV4"
-#   option_group_name                     = "default:postgres-17"
-#   parameter_group_name                  = "default.postgres17"
-#   password                              = null # sensitive
-#   password_wo                           = null # sensitive
-#   password_wo_version                   = null
-#   performance_insights_enabled          = true
-#   performance_insights_kms_key_id       = "arn:aws:kms:us-east-1:791860731874:key/30719407-e8f6-4238-899a-c2201d576f09"
-#   performance_insights_retention_period = 7
-#   port                                  = 5432
-#   publicly_accessible                   = false
-#   replica_mode                          = null
-#   replicate_source_db                   = null
-#   skip_final_snapshot                   = true
-#   snapshot_identifier                   = null
-#   storage_encrypted                     = true
-#   storage_throughput                    = 0
-#   storage_type                          = "gp2"
-#   tags                                  = {}
-#   tags_all                              = {}
-#   timezone                              = null
-#   upgrade_storage_config                = null
-#   username                              = "postgres"
-#   vpc_security_group_ids                = ["sg-0c6e7b23da2e0d4ee"]
-# }
+# __generated__ by Terraform
+
+
+# __generated__ by Terraform from "SecretsManagerRDSPostgreS-SecretsManagerRDSPostgreS-W2FRvrInTTE6"
 

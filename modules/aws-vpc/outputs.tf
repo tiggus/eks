@@ -6,3 +6,7 @@ output "availability_zones" {
 output "private_subnet_ids" {
   value = aws_subnet.private[*].id
 }
+
+output "vpc" {
+  value = aws_vpc.vpc[0]
+}
