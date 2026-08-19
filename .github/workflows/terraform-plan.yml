@@ -1,3 +1,4 @@
+
 name: shared matrix
 on:
   push:
@@ -16,7 +17,7 @@ jobs:
         run: |
           echo 'targets=["dev", "ci", "test", "sit"]' >> "$GITHUB_OUTPUT"
 
-  produce-artifacts:
+  terraform-plan:
     runs-on: ubuntu-22.04
     needs: define-matrix
     strategy:
@@ -24,40 +25,25 @@ jobs:
         target: ${{ fromJSON(needs.define-matrix.outputs.targets) }}
 
     steps:
-      - name: define target
-        env:
-          target: ${{ matrix.target }}
-        run: |
-          echo "$target" > target
-      # - name: produce artifact
-      #   uses: actions/upload-artifact@v4
-      #   with:
-      #     name: ${{ matrix.target }}
-      #     path: target
       - name: terraform setup
         run: |
           terraform init
           terraform workspace select -or-create ${{ matrix.target }}
           terraform workspace list
+      - name: terraform plan
+        run: |
+          echo "terraform plan"
 
-  consume-artifacts:
+  terraform-apply:
     runs-on: ubuntu-22.04
     needs:
     - define-matrix
-    - produce-artifacts
+    - terraform-plan
     strategy:
       matrix:
         target: ${{ fromJSON(needs.define-matrix.outputs.targets) }}
 
     steps:
-    # - name: retrieve artifact
-    #   uses: actions/download-artifact@v5
-    #   with:
-    #     name: ${{ matrix.target }}
-
-    - name: report target
+    - name: terraform apply
       run: |
-        cat target
-        echo $target
-
-
+        echo "terraform apply $matrix.target"
