@@ -37,7 +37,7 @@ jobs:
       - name: terraform setup
         run: |
           terraform init
-          terraform workspace select -or-create $TF_ENV
+          terraform workspace select -or-create $target
           terraform workspace list
 
   consume-artifacts:
@@ -58,7 +58,6 @@ jobs:
     - name: report target
       run: |
         cat target
-
-
+        echo $target
 
 
