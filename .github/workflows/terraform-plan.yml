@@ -46,4 +46,4 @@ jobs:
     steps:
     - name: terraform apply
       run: |
-        echo "terraform apply $matrix.target"
+        echo "terraform apply ${{ matrix.target}}"
