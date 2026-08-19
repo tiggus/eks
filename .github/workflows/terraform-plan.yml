@@ -42,7 +42,7 @@ jobs:
     - produce-artifacts
     strategy:
       matrix:
-        color: ${{ fromJSON(needs.define-matrix.outputs.targets) }}
+        target: ${{ fromJSON(needs.define-matrix.outputs.targets) }}
 
     steps:
     - name: retrieve artifact
@@ -53,4 +53,3 @@ jobs:
     - name: report target
       run: |
         cat target
-
