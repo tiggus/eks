@@ -21,7 +21,7 @@ jobs:
     needs: define-matrix
     strategy:
       matrix:
-        targets: ${{ fromJSON(needs.define-matrix.outputs.targets) }}
+        target: ${{ fromJSON(needs.define-matrix.outputs.targets) }}
 
     steps:
       - name: define target
