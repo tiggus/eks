@@ -37,7 +37,7 @@ jobs:
       - name: terraform setup
         run: |
           terraform init
-          terraform workspace select -or-create $target
+          terraform workspace select -or-create ${{ matrix.target }}
           terraform workspace list
 
   consume-artifacts:
