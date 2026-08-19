@@ -8,32 +8,32 @@ jobs:
     runs-on: ubuntu-latest
 
     outputs:
-      colors: ${{ steps.colors.outputs.colors }}
+      targets: ${{ steps.targets.outputs.targets }}
 
     steps:
-      - name: Define Colors
-        id: colors
+      - name: define targets
+        id: targets
         run: |
-          echo 'colors=["red", "green", "blue"]' >> "$GITHUB_OUTPUT"
+          echo 'targets=["dev", "ci", "test", "sit"]' >> "$GITHUB_OUTPUT"
 
   produce-artifacts:
     runs-on: ubuntu-latest
     needs: define-matrix
     strategy:
       matrix:
-        color: ${{ fromJSON(needs.define-matrix.outputs.colors) }}
+        targets: ${{ fromJSON(needs.define-matrix.outputs.targets) }}
 
     steps:
-      - name: Define Color
+      - name: define target
         env:
-          color: ${{ matrix.color }}
+          target: ${{ matrix.target }}
         run: |
-          echo "$color" > color
-      - name: Produce Artifact
+          echo "$target" > target
+      - name: produce artifact
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ matrix.color }}
-          path: color
+          name: ${{ matrix.target }}
+          path: target
 
   consume-artifacts:
     runs-on: ubuntu-latest
@@ -42,14 +42,15 @@ jobs:
     - produce-artifacts
     strategy:
       matrix:
-        color: ${{ fromJSON(needs.define-matrix.outputs.colors) }}
+        color: ${{ fromJSON(needs.define-matrix.outputs.targets) }}
 
     steps:
-    - name: Retrieve Artifact
+    - name: retrieve artifact
       uses: actions/download-artifact@v5
       with:
-        name: ${{ matrix.color }}
+        name: ${{ matrix.target }}
 
-    - name: Report Color
+    - name: report target
       run: |
-        cat color
+        cat target
+
