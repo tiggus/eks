@@ -29,11 +29,16 @@ jobs:
           target: ${{ matrix.target }}
         run: |
           echo "$target" > target
-      - name: produce artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: ${{ matrix.target }}
-          path: target
+      # - name: produce artifact
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: ${{ matrix.target }}
+      #     path: target
+      - name: terraform setup
+        run: |
+          terraform init
+          terraform workspace select -or-create $TF_ENV
+          terraform workspace list
 
   consume-artifacts:
     runs-on: ubuntu-latest
@@ -45,12 +50,14 @@ jobs:
         target: ${{ fromJSON(needs.define-matrix.outputs.targets) }}
 
     steps:
-    - name: retrieve artifact
-      uses: actions/download-artifact@v5
-      with:
-        name: ${{ matrix.target }}
+    # - name: retrieve artifact
+    #   uses: actions/download-artifact@v5
+    #   with:
+    #     name: ${{ matrix.target }}
 
     - name: report target
       run: |
         cat target
+
+
 
