@@ -5,7 +5,7 @@ on:
 
 jobs:
   define-matrix:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
 
     outputs:
       targets: ${{ steps.targets.outputs.targets }}
@@ -17,7 +17,7 @@ jobs:
           echo 'targets=["dev", "ci", "test", "sit"]' >> "$GITHUB_OUTPUT"
 
   produce-artifacts:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     needs: define-matrix
     strategy:
       matrix:
@@ -41,7 +41,7 @@ jobs:
           terraform workspace list
 
   consume-artifacts:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     needs:
     - define-matrix
     - produce-artifacts
@@ -58,6 +58,7 @@ jobs:
     - name: report target
       run: |
         cat target
+
 
 
 
