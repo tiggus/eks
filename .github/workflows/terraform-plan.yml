@@ -1,3 +1,4 @@
+
 name: shared matrix
 on:
   push:
@@ -15,6 +16,10 @@ jobs:
         id: targets
         run: |
           echo 'targets=["dev", "ci", "test", "sit"]' >> "$GITHUB_OUTPUT"
+      - name: define layers
+        id: layers
+        run: |
+          echo 'layers=["layer1", "layer2", "layer3"]' >> "$GITHUB_OUTPUT"
 
   terraform-plan:
     runs-on: ubuntu-22.04
@@ -22,6 +27,7 @@ jobs:
     strategy:
       matrix:
         target: ${{ fromJSON(needs.define-matrix.outputs.targets) }}
+        layer: ${{ fromJSON(needs.define-matrix.outputs.layers) }}
 
     steps:
       - name: terraform setup
@@ -39,7 +45,7 @@ jobs:
     - define-matrix
     - terraform-plan
     environment:
-      name: deploy
+      name: development
     strategy:
       matrix:
         target: ${{ fromJSON(needs.define-matrix.outputs.targets) }}
