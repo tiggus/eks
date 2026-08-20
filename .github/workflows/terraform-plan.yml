@@ -10,6 +10,7 @@ jobs:
 
     outputs:
       targets: ${{ steps.targets.outputs.targets }}
+      layers: ${{ steps.targets.outputs.layers }}
 
     steps:
       - name: define targets
@@ -54,3 +55,4 @@ jobs:
     - name: terraform apply
       run: |
         echo "terraform apply ${{ matrix.target}}"
+
