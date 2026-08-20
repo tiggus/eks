@@ -48,12 +48,12 @@ jobs:
     environment:
       name: development
     strategy:
+      max-parallel: 1
       matrix:
-        layer: ${{ fromJSON(needs.define-matrix.outputs.layers) }}
         target: ${{ fromJSON(needs.define-matrix.outputs.targets) }}
+        layer: ${{ fromJSON(needs.define-matrix.outputs.layers) }}
 
     steps:
       - name: terraform apply
         run: |
           echo "terraform apply ${{ matrix.target }}"
-
