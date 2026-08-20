@@ -10,7 +10,7 @@ jobs:
 
     outputs:
       targets: ${{ steps.targets.outputs.targets }}
-      layers: ${{ steps.targets.outputs.layers }}
+      layers: ${{ steps.layers.outputs.layers }}
 
     steps:
       - name: define targets
