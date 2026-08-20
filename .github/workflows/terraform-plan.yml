@@ -16,13 +16,13 @@ jobs:
       - name: define targets
         id: targets
         run: |
-          echo 'targets=["1:dev", "2:ci", "3:test", "4:sit"]' >> "$GITHUB_OUTPUT"
+          echo 'targets=["a:dev", "b:ci", "c:test", "d:sit"]' >> "$GITHUB_OUTPUT"
       - name: define layers
         id: layers
         run: |
-          echo 'layers=["1:network", "2:cluster", "3:helm"]' >> "$GITHUB_OUTPUT"
+          echo 'layers=["a:network", "b:cluster", "c:helm"]' >> "$GITHUB_OUTPUT"
 
-  terraform-plan:
+  tf-plan:
     runs-on: ubuntu-22.04
     needs: define-matrix
     strategy:
@@ -40,20 +40,22 @@ jobs:
         run: |
           echo "terraform plan"
 
-  terraform-apply:
+  tf-pply:
     runs-on: ubuntu-22.04
     needs:
     - define-matrix
-    - terraform-plan
+    - tf-plan
     environment:
       name: development
     strategy:
-      max-parallel: 3
+      max-parallel: 4
       matrix:
-        target: ${{ fromJSON(needs.define-matrix.outputs.targets) }}
         layer: ${{ fromJSON(needs.define-matrix.outputs.layers) }}
+        target: ${{ fromJSON(needs.define-matrix.outputs.targets) }}
 
     steps:
       - name: terraform apply
         run: |
           echo "terraform apply ${{ matrix.target }}"
+
+
