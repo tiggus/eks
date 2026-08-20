@@ -28,7 +28,7 @@ jobs:
     strategy:
       matrix:
         target: ${{ fromJSON(needs.define-matrix.outputs.targets) }}
-        layer: ${{ fromJSON(needs.define-matrix.outputs.layers) }}
+        #layer: ${{ fromJSON(needs.define-matrix.outputs.layers) }}
 
     steps:
       - name: terraform setup
@@ -49,10 +49,11 @@ jobs:
       name: development
     strategy:
       matrix:
-        target: ${{ fromJSON(needs.define-matrix.outputs.targets[0]) }}
+        target: ${{ fromJSON(needs.define-matrix.outputs.targets) }}
 
     steps:
     - name: terraform apply
       run: |
         echo "terraform apply ${{ matrix.target}}"
+
 
