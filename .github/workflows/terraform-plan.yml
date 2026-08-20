@@ -50,7 +50,7 @@ jobs:
     strategy:
       matrix:
         target: ${{ fromJSON(needs.define-matrix.outputs.targets) }}
-        layer: ${{ fromJSON(needs.define-matrix.outputs.layers) }}
+        # layer: ${{ fromJSON(needs.define-matrix.outputs.layers) }}
 
     steps:
       - name: terraform apply
