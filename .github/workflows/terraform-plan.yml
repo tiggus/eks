@@ -48,7 +48,7 @@ jobs:
     environment:
       name: development
     strategy:
-      max-parallel: 1
+      max-parallel: 4
       matrix:
         layer: ${{ fromJSON(needs.define-matrix.outputs.layers) }}
         target: ${{ fromJSON(needs.define-matrix.outputs.targets) }}
