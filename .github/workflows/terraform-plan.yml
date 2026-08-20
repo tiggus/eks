@@ -55,5 +55,4 @@ jobs:
     - name: terraform apply
       run: |
         echo "terraform apply ${{ matrix.target }}"
-        echo ${{ matrix.target[0] }}"
-
+        echo $layers
