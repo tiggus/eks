@@ -52,7 +52,13 @@ jobs:
         target: ${{ fromJSON(needs.define-matrix.outputs.targets) }}
 
     steps:
-    - name: terraform apply
-      run: |
-        echo "terraform apply ${{ matrix.target }}"
-        echo $layers
+      - env:
+          LAYERS: ${{ fromJSON(needs.define-matrix.outputs.layers) }}
+      - name: terraform apply
+        run: |
+          echo "terraform apply ${{ matrix.target }}"
+          echo "$LAYERS"
+
+
+
+
