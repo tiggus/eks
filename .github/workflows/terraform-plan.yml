@@ -180,7 +180,7 @@ jobs:
     needs:
     - define-matrix
     - tf-plan-global
-    - tf-apply-global
+    - tf-apply-core
     - tf-plan-application-core
     environment:
       name: development
