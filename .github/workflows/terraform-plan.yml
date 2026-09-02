@@ -17,10 +17,10 @@ jobs:
         id: targets
         run: |
           echo 'targets=["dev", "ci", "test", "sit"]' >> "$GITHUB_OUTPUT"
-      - name: define layers
-        id: layers
-        run: |
-          echo 'layers=["global", "application-core", "databricks-core", "application-service", "databricks-service"]' >> "$GITHUB_OUTPUT"
+      #- name: define layers
+      # id: layers
+      # run: |
+      #   echo 'layers=["global", "application-core", "databricks-core", "application-service", "databricks-service"]' >> "$GITHUB_OUTPUT"
 
   tf-plan:
     runs-on: ubuntu-22.04
@@ -28,7 +28,7 @@ jobs:
     strategy:
       matrix:
         target: ${{ fromJSON(needs.define-matrix.outputs.targets) }}
-        layer: ${{ fromJSON(needs.define-matrix.outputs.layers) }}
+        layer: global
         include: 
           - target: transit
             layer: core
@@ -55,7 +55,7 @@ jobs:
     strategy:
       max-parallel: 4
       matrix:
-        layer: ${{ fromJSON(needs.define-matrix.outputs.layers) }}
+        layer: global
         target: ${{ fromJSON(needs.define-matrix.outputs.targets) }}
 
     steps:
