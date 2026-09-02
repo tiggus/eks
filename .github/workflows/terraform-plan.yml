@@ -136,19 +136,21 @@ jobs:
         run: |
           echo "terraform plan"
 
-  tf-apply-core:
-    name: "blah de blah"
+  tf-apply-transit:
+    name: "${{ matrix.target }}: ${{ matrix.layer }}"
     runs-on: ubuntu-22.04
     needs:
     - define-matrix
     - tf-plan-global
     environment:
-      name: development
+      name: transit
     strategy:
       max-parallel: 1
       matrix:
         target:
           - transit
+        layer:
+          - core
 
     steps:
       - name: terraform apply
