@@ -16,11 +16,11 @@ jobs:
       - name: define targets
         id: targets
         run: |
-          echo 'targets=["a:dev", "b:ci", "c:test", "d:sit"]' >> "$GITHUB_OUTPUT"
+          echo 'targets=["dev", "ci", "test", "sit", "transit"]' >> "$GITHUB_OUTPUT"
       - name: define layers
         id: layers
         run: |
-          echo 'layers=["a:network", "b:cluster", "c:helm"]' >> "$GITHUB_OUTPUT"
+          echo 'layers=["global", "application-core", "databricks-core", "application-service", "databricks-service"]' >> "$GITHUB_OUTPUT"
 
   tf-plan:
     runs-on: ubuntu-22.04
@@ -29,6 +29,9 @@ jobs:
       matrix:
         target: ${{ fromJSON(needs.define-matrix.outputs.targets) }}
         layer: ${{ fromJSON(needs.define-matrix.outputs.layers) }}
+        exclude: 
+          - target: transit
+            layer: ["application-core", "databricks-core", "application-service", "databricks-service"]
 
     steps:
       - name: terraform setup
@@ -40,7 +43,7 @@ jobs:
         run: |
           echo "terraform plan"
 
-  tf-pply:
+  tf-apply:
     runs-on: ubuntu-22.04
     needs:
     - define-matrix
