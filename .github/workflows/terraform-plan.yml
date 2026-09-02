@@ -31,7 +31,98 @@ jobs:
         target: ${{ fromJSON(needs.define-matrix.outputs.targets) }}
         layer:
           - ${{ (fromJSON(needs.define-matrix.outputs.layers))[0] }}
+        include:
+          - target: transit
+            layer: core
+
+    steps:
+      - name: terraform setup
+        run: |
+          terraform init
+          terraform workspace select -or-create ${{ matrix.target }}
+          terraform workspace list
+      - name: terraform plan
+        run: |
+          echo "terraform plan"
+
+  tf-plan-application-core:
+    runs-on: ubuntu-22.04
+    needs: define-matrix
+    name: "${{ matrix.target }}: ${{ matrix.layer }}"
+    strategy:
+      matrix:
+        target: ${{ fromJSON(needs.define-matrix.outputs.targets) }}
+        layer:
           - ${{ (fromJSON(needs.define-matrix.outputs.layers))[1] }}
+        include:
+          - target: transit
+            layer: core
+
+    steps:
+      - name: terraform setup
+        run: |
+          terraform init
+          terraform workspace select -or-create ${{ matrix.target }}
+          terraform workspace list
+      - name: terraform plan
+        run: |
+          echo "terraform plan"
+
+  tf-plan-databricks-core:
+    runs-on: ubuntu-22.04
+    needs: define-matrix
+    name: "${{ matrix.target }}: ${{ matrix.layer }}"
+    strategy:
+      matrix:
+        target: ${{ fromJSON(needs.define-matrix.outputs.targets) }}
+        layer:
+          - ${{ (fromJSON(needs.define-matrix.outputs.layers))[1] }}
+        include:
+          - target: transit
+            layer: core
+
+    steps:
+      - name: terraform setup
+        run: |
+          terraform init
+          terraform workspace select -or-create ${{ matrix.target }}
+          terraform workspace list
+      - name: terraform plan
+        run: |
+          echo "terraform plan"
+
+  tf-plan-application-service:
+    runs-on: ubuntu-22.04
+    needs: define-matrix
+    name: "${{ matrix.target }}: ${{ matrix.layer }}"
+    strategy:
+      matrix:
+        target: ${{ fromJSON(needs.define-matrix.outputs.targets) }}
+        layer:
+          - ${{ (fromJSON(needs.define-matrix.outputs.layers))[2] }}
+        include:
+          - target: transit
+            layer: core
+
+    steps:
+      - name: terraform setup
+        run: |
+          terraform init
+          terraform workspace select -or-create ${{ matrix.target }}
+          terraform workspace list
+      - name: terraform plan
+        run: |
+          echo "terraform plan"
+
+  tf-plan-databricks-service:
+    runs-on: ubuntu-22.04
+    needs: define-matrix
+    name: "${{ matrix.target }}: ${{ matrix.layer }}"
+    strategy:
+      matrix:
+        target: ${{ fromJSON(needs.define-matrix.outputs.targets) }}
+        layer:
+          - ${{ (fromJSON(needs.define-matrix.outputs.layers))[3] }}
         include:
           - target: transit
             layer: core
