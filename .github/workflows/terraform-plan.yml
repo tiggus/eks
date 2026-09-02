@@ -31,6 +31,7 @@ jobs:
         target: ${{ fromJSON(needs.define-matrix.outputs.targets) }}
         layer:
           - ${{ (fromJSON(needs.define-matrix.outputs.layers))[0] }}
+          - ${{ (fromJSON(needs.define-matrix.outputs.layers))[1] }}
         include:
           - target: transit
             layer: core
@@ -68,6 +69,7 @@ jobs:
     runs-on: ubuntu-22.04
     needs:
     - define-matrix
+    - tf-plan
     - tf-apply-core
     environment:
       name: development
