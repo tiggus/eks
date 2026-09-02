@@ -10,7 +10,7 @@ jobs:
 
     outputs:
       targets: ${{ steps.targets.outputs.targets }}
-      layers: ${{ steps.layers.outputs.layers }}
+      #layers: ${{ steps.layers.outputs.layers }}
 
     steps:
       - name: define targets
@@ -28,13 +28,11 @@ jobs:
     strategy:
       matrix:
         target: ${{ fromJSON(needs.define-matrix.outputs.targets) }}
-        layer: global
         include: 
           - target: transit
             layer: core
+          - layer: global
 
-            
-            
     steps:
       - name: terraform setup
         run: |
@@ -55,8 +53,9 @@ jobs:
     strategy:
       max-parallel: 4
       matrix:
-        layer: global
         target: ${{ fromJSON(needs.define-matrix.outputs.targets) }}
+        include:
+          - layer: global
 
     steps:
       - name: terraform apply
