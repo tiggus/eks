@@ -179,8 +179,7 @@ jobs:
     runs-on: ubuntu-22.04
     needs:
     - define-matrix
-    - tf-plan-global
-    - tf-apply-core
+    - tf-apply-global
     - tf-plan-application-core
     environment:
       name: development
@@ -195,6 +194,30 @@ jobs:
       - name: terraform apply
         run: |
           echo "terraform apply ${{ matrix.target }}"
+
+  tf-apply-databricks-core:
+    runs-on: ubuntu-22.04
+    needs:
+    - define-matrix
+    - tf-apply-application-core
+    - tf-plan-databricks-core
+    environment:
+      name: development
+    strategy:
+      max-parallel: 4
+      matrix:
+        target: ${{ fromJSON(needs.define-matrix.outputs.targets) }}
+        include:
+          - layer: global
+
+    steps:
+      - name: terraform apply
+        run: |
+          echo "terraform apply ${{ matrix.target }}"
+
+
+
+
 
 
 
