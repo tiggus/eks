@@ -1,4 +1,3 @@
-
 name: shared matrix
 on:
   push:
@@ -176,7 +175,7 @@ jobs:
         run: |
           echo "terraform apply ${{ matrix.target }}"
 
- tf-apply-application-core:
+  tf-apply-application-core:
     runs-on: ubuntu-22.04
     needs:
     - define-matrix
