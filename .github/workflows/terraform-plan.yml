@@ -10,29 +10,30 @@ jobs:
 
     outputs:
       targets: ${{ steps.targets.outputs.targets }}
-      #layers: ${{ steps.layers.outputs.layers }}
+      layers: ${{ steps.layers.outputs.layers }}
 
     steps:
       - name: define targets
         id: targets
         run: |
           echo 'targets=["dev", "ci", "test", "sit"]' >> "$GITHUB_OUTPUT"
-      #- name: define layers
-      # id: layers
-      # run: |
-      #   echo 'layers=["global", "application-core", "databricks-core", "application-service", "databricks-service"]' >> "$GITHUB_OUTPUT"
+      - name: define layers
+        id: layers
+        run: |
+          echo 'layers=["global", "application-core", "databricks-core", "application-service", "databricks-service"]' >> "$GITHUB_OUTPUT"
 
   tf-plan:
     runs-on: ubuntu-22.04
     needs: define-matrix
-    name: "${{ matrix.target }}: build"
+    name: "${{ matrix.target }}: ${{ matrix.layer[0] }}"
     strategy:
       matrix:
         target: ${{ fromJSON(needs.define-matrix.outputs.targets) }}
+        #layer: ${{ matrix.layer[0] }}
         include: 
           - target: transit
             layer: core
-          - layer: global
+
 
     steps:
       - name: terraform setup
