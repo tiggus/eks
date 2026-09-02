@@ -57,6 +57,11 @@ jobs:
       matrix:
         target:
           - transit
+
+    steps:
+      - name: terraform apply
+        run: |
+          echo "terraform apply ${{ matrix.target }}"
         
 
   tf-apply:
