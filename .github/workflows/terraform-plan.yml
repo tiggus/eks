@@ -29,7 +29,9 @@ jobs:
     strategy:
       matrix:
         target: ${{ fromJSON(needs.define-matrix.outputs.targets) }}
-        layer: ${{ (fromJSON(needs.define-matrix.outputs.layers)) }}
+        layer:
+          - ${{ (fromJSON(needs.define-matrix.outputs.layers))[0] }}
+        #${{ (fromJSON(needs.define-matrix.outputs.layers)) }}
         #include: 
          # - target: transit
           #  layer: core
