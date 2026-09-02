@@ -25,7 +25,7 @@ jobs:
   tf-plan:
     runs-on: ubuntu-22.04
     needs: define-matrix
-    name: "${{ matrix.target }}: ${{ matrix.layer[0] }}"
+    name: "${{ matrix.target }}: ${{ (fromJSON(needs.define-matrix.outputs.layers))[0] }}"
     strategy:
       matrix:
         target: ${{ fromJSON(needs.define-matrix.outputs.targets) }}
