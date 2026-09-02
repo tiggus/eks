@@ -29,9 +29,15 @@ jobs:
     strategy:
       matrix:
         target: ${{ fromJSON(needs.define-matrix.outputs.targets) }}
-        include: 
-          - target: transit
-            layer: core
+        layer: '"${{ (fromJSON(needs.define-matrix.outputs.layers))[0] }}"'
+        #include: 
+         # - target: transit
+          #  layer: core
+
+             # - target: ${{ (fromJSON(needs.define-matrix.outputs.layers))[0] }}
+        #exclude:
+          #- target: transit
+           # layer: 
 
     steps:
       - name: terraform setup
