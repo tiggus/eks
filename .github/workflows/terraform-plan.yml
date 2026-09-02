@@ -32,8 +32,9 @@ jobs:
         layer:
           - ${{ (fromJSON(needs.define-matrix.outputs.layers))[0] }}
         include:
-          - layer: core
-            target: transit
+          - target: transit
+          - target: transit
+            layer: core
         #${{ (fromJSON(needs.define-matrix.outputs.layers)) }}
         #include: 
          # - target: transit
