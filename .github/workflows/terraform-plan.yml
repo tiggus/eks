@@ -34,15 +34,6 @@ jobs:
         include:
           - target: transit
             layer: core
-        #${{ (fromJSON(needs.define-matrix.outputs.layers)) }}
-        #include: 
-         # - target: transit
-          #  layer: core
-
-             # - target: ${{ (fromJSON(needs.define-matrix.outputs.layers))[0] }}
-        #exclude:
-          #- target: transit
-           # layer: 
 
     steps:
       - name: terraform setup
@@ -53,6 +44,20 @@ jobs:
       - name: terraform plan
         run: |
           echo "terraform plan"
+
+  tf-apply-core:
+    runs-on: ubuntu-22.04
+    needs:
+    - define-matrix
+    - tf-plan
+    environment:
+      name: development
+    strategy:
+      max-parallel: 1
+      matrix:
+        include:
+          - target: transit
+          - layer: core
 
   tf-apply:
     runs-on: ubuntu-22.04
