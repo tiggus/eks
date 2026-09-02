@@ -31,8 +31,14 @@ jobs:
         layer: ${{ fromJSON(needs.define-matrix.outputs.layers) }}
         exclude: 
           - target: transit
-            layer: ["application-core", "databricks-core", "application-service", "databricks-service"]
-
+            layer: application-core
+          - target: transit
+            layer: databricks-core
+          - target: transit
+            layer: application-service
+          - target: transit
+            layer: databricks-service
+            
     steps:
       - name: terraform setup
         run: |
