@@ -137,6 +137,7 @@ jobs:
           echo "terraform plan"
 
   tf-apply-core:
+    name: name: "${{ matrix.target }}: ${{ matrix.layer }}"
     runs-on: ubuntu-22.04
     needs:
     - define-matrix
