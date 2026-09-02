@@ -163,7 +163,7 @@ jobs:
     needs:
     - define-matrix
     - tf-plan-global
-    - tf-apply-core
+    - tf-apply-transit
     environment:
       name: development
     strategy:
