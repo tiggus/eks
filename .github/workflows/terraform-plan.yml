@@ -55,9 +55,9 @@ jobs:
     strategy:
       max-parallel: 1
       matrix:
-        include:
-          - target: transit
-          - layer: core
+        target:
+          - transit
+        
 
   tf-apply:
     runs-on: ubuntu-22.04
