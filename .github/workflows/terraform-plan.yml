@@ -32,7 +32,6 @@ jobs:
         include: 
           - target: transit
             layer: core
-          - target: ${{ (fromJSON(needs.define-matrix.outputs.layers))[0] }}
 
     steps:
       - name: terraform setup
